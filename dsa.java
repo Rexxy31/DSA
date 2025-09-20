@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class DSA {
+public class dsa {
     public static void main(String[] args) {
 
         // int[] A = {1, 2, 3, 4, 5};
