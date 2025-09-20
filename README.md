@@ -4,12 +4,13 @@ This repository contains implementations of various data structures and algorith
 
 ## Algorithms Implemented
 
-- **Binary Search**: Searches for a target value in a sorted array.
-- **Closest to Zero**: Finds the number closest to zero in an array, preferring positive if both exist.
-- **Merge Alternately**: Merges two strings alternately.
-- **Roman to Integer**: Converts Roman numerals to integers.
-- **Is Subsequence**: Checks if one string is a subsequence of another.
+- **Binary Search**: Searches for a target value in a sorted array (LeetCode 704).
+- **Closest to Zero**: Finds the number closest to zero in an array, preferring positive if both exist (LeetCode 2239).
+- **Merge Alternately**: Merges two strings alternately (LeetCode 1768).
+- **Roman to Integer**: Converts Roman numerals to integers (LeetCode 13).
+- **Is Subsequence**: Checks if one string is a subsequence of another (LeetCode 392).
 - **Max Profit**: Calculates the maximum profit from stock prices (LeetCode 121).
+- **Longest Common Prefix**: Finds the longest common prefix string amongst an array of strings (LeetCode 14).
 
 
 ## How to Run
