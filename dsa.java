@@ -6,12 +6,14 @@ public class dsa {
         // int[] A = {1, 2, 3, 4, 5};
         // int[] B = {-4, -3, 2, 3, -2};
         // int[] C = {7,1,5,3,6,4};
+        String[] D = {"flower","flow","flight"};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
         // System.out.println(romanToInt("MCMXCIV"));
         // System.out.println(isSubsequence("abc", "apqcrs"));
         // System.out.println(maxProfit(C));
+        System.out.println(longestCommonPrefix(D));
 
 
     }
@@ -159,6 +161,33 @@ public class dsa {
         return max_profit;
     }
 
-    
+    public static String longestCommonPrefix(String[] strs) {
+
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+        int min_length = Integer.MAX_VALUE;
+
+        for (String s : strs) {
+            if (s.length() < min_length) {
+                min_length = s.length();
+            }
+        }
+
+        int i = 0;
+
+        while (i < min_length) {
+            for (String s : strs) {
+                if (s.charAt(i) != strs[0].charAt(i)) {
+                    return strs[0].substring(0, i);
+                }
+            }
+
+            i += 1;
+        }
+
+        return strs[0].substring(0,i);
+    }
+
 
 }

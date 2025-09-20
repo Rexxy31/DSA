@@ -112,21 +112,43 @@
 
 # print(isSubsequence('abc', 'apbqcr'))
 
-def maxProfit(prices):
-    min_price = float('inf')
-    max_profit = 0
+# def maxProfit(prices):
+#     min_price = float('inf')
+#     max_profit = 0
 
-    for price in prices:
-        if price < min_price:
-            min_price = price
+#     for price in prices:
+#         if price < min_price:
+#             min_price = price
 
-        profit = price - min_price
+#         profit = price - min_price
 
-        if profit > max_profit:
-            max_profit = profit
+#         if profit > max_profit:
+#             max_profit = profit
     
-    return max_profit
+#     return max_profit
 
-C = [7,1,5,3,6,4]
+# C = [7,1,5,3,6,4]
 
-print(maxProfit(C))
+# print(maxProfit(C))
+
+def longestCommonPrefix(strs):
+    min_length = float('inf')
+
+    for s in strs:
+        if len(s) < min_length:
+            min_length = len(s)
+
+    i = 0
+    while i < min_length:
+        for s in strs:
+            if s[i] != strs[0][i]:
+                return s[:i]
+            
+        i += 1
+
+    return s[:i]
+
+D = ["flower","flow","flight"]
+print(longestCommonPrefix(D))
+
+
