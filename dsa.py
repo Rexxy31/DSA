@@ -131,24 +131,46 @@
 
 # print(maxProfit(C))
 
-def longestCommonPrefix(strs):
-    min_length = float('inf')
+# def longestCommonPrefix(strs):
+#     min_length = float('inf')
 
-    for s in strs:
-        if len(s) < min_length:
-            min_length = len(s)
+#     for s in strs:
+#         if len(s) < min_length:
+#             min_length = len(s)
 
-    i = 0
-    while i < min_length:
-        for s in strs:
-            if s[i] != strs[0][i]:
-                return s[:i]
+#     i = 0
+#     while i < min_length:
+#         for s in strs:
+#             if s[i] != strs[0][i]:
+#                 return s[:i]
             
+#         i += 1
+
+#     return s[:i]
+
+# D = ["flower","flow","flight"]
+# print(longestCommonPrefix(D))
+
+
+def summaryRanges(nums):
+    ans = []
+    i = 0
+
+    while i < len(nums):
+        start = nums[i]
+
+        while i < len(nums) - 1 and nums[i] + 1 == nums[i+1]:
+            i += 1
+        
+        if start != nums[i]:
+            ans.append(str(start) + " -> " + str(nums[i]))
+        else:
+            ans.append(str(nums[i]))
+
         i += 1
+    
+    return ans
 
-    return s[:i]
+E = [1, 2, 3, 5, 7, 8, 9]
 
-D = ["flower","flow","flight"]
-print(longestCommonPrefix(D))
-
-
+print(summaryRanges(E))

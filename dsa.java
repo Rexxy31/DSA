@@ -1,19 +1,23 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class dsa {
     public static void main(String[] args) {
 
         // int[] A = {1, 2, 3, 4, 5};
         // int[] B = {-4, -3, 2, 3, -2};
-        // int[] C = {7,1,5,3,6,4};
-        String[] D = {"flower","flow","flight"};
+        // int[] C = {7,5,3,6,4};
+        int[] D = {1, 2, 3, 5, 7, 8, 9};
+        // String[] D = {"flower","flow","flight"};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
         // System.out.println(romanToInt("MCMXCIV"));
         // System.out.println(isSubsequence("abc", "apqcrs"));
         // System.out.println(maxProfit(C));
-        System.out.println(longestCommonPrefix(D));
+        // System.out.println(longestCommonPrefix(D));
+        System.out.println(summaryRanges(D));
 
 
     }
@@ -189,5 +193,27 @@ public class dsa {
         return strs[0].substring(0,i);
     }
 
+    public static String summaryRanges(int[] nums) {
+        List<String> ans = new ArrayList<>();
+        int i = 0;
+
+        while (i < nums.length) {
+            int start = nums[i];
+
+            while (i < nums.length - 1 && nums[i] + 1 == nums[i+1]) {
+                i += 1;
+            }
+
+            if (start != nums[i]) {
+                ans.add(start + " -> " + nums[i]);
+            } else {
+                ans.add(String.valueOf(nums[i]));
+            }
+
+            i += 1;
+        }
+
+        return ans.toString();
+    }
 
 }

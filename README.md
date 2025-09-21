@@ -11,6 +11,7 @@ This repository contains implementations of various data structures and algorith
 - **Is Subsequence**: Checks if one string is a subsequence of another (LeetCode 392).
 - **Max Profit**: Calculates the maximum profit from stock prices (LeetCode 121).
 - **Longest Common Prefix**: Finds the longest common prefix string amongst an array of strings (LeetCode 14).
+- **Summary Ranges**: Summarizes the ranges of consecutive numbers in an array (LeetCode 228).
 
 
 ## How to Run
