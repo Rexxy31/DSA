@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,8 +9,9 @@ public class dsa {
         // int[] A = {1, 2, 3, 4, 5};
         // int[] B = {-4, -3, 2, 3, -2};
         // int[] C = {7,5,3,6,4};
-        int[] D = {1, 2, 3, 5, 7, 8, 9};
-        // String[] D = {"flower","flow","flight"};
+        // int[] D = {1, 2, 3, 5, 7, 8, 9};
+        // String[] F = {"flower","flow","flight"};
+        int[] pES = {1, 2, 3, 4};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -17,7 +19,8 @@ public class dsa {
         // System.out.println(isSubsequence("abc", "apqcrs"));
         // System.out.println(maxProfit(C));
         // System.out.println(longestCommonPrefix(D));
-        System.out.println(summaryRanges(D));
+        // System.out.println(summaryRanges(F));
+        System.out.println(productExceptSelf(pES));
 
 
     }
@@ -214,6 +217,26 @@ public class dsa {
         }
 
         return ans.toString();
+    }
+
+    public static String productExceptSelf(int[] nums) {
+        int l_mult = 1;
+        int r_mult = 1;
+        int n = nums.length;
+
+        int[] result = new int[n];
+
+        for ( int i = 0; i < n; i++) {
+            result[i] = l_mult;
+            l_mult *= nums[i];        
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            result[i] *= r_mult;
+            r_mult *= nums[i];
+        }
+
+        return Arrays.toString(result);
     }
 
 }
