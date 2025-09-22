@@ -175,25 +175,45 @@
 
 # print(summaryRanges(E))
 
-def productExceptSelf(nums):
-    l_mult = 1
-    r_mult = 1
+# def productExceptSelf(nums):
+#     l_mult = 1
+#     r_mult = 1
 
-    n = len(nums)
+#     n = len(nums)
 
-    l_arr = [0] * n
-    r_arr = [0] * n
+#     l_arr = [0] * n
+#     r_arr = [0] * n
 
-    for i in range(n):
-        j = -i -1
-        l_arr[i] = l_mult
-        r_arr[j] = r_mult
-        l_mult *= nums[i]
-        r_mult *= nums[j]
+#     for i in range(n):
+#         j = -i -1
+#         l_arr[i] = l_mult
+#         r_arr[j] = r_mult
+#         l_mult *= nums[i]
+#         r_mult *= nums[j]
 
-    return [l*r for l, r in zip(l_arr, r_arr)]
+#     return [l*r for l, r in zip(l_arr, r_arr)]
 
 
-F = [1, 2, 3, 4]
+# F = [1, 2, 3, 4]
 
-print(productExceptSelf(F))
+# print(productExceptSelf(F))
+
+E = [[1,3],[2,6],[8,10],[15,18]]
+[[4,7],[1,4]] -> [1, 4], [4,7]
+
+
+def mergeIntervals(intervals):
+    intervals.sort(key=lambda interval: interval[0])
+    merged = []
+
+    for interval in intervals:
+        if not merged or merged[-1][1] < interval[0]:                                         #not merged          4<4 false
+            merged.append(interval)                                                           #[1,4]  
+        else:
+            merged[-1] = [merged[-1][0], max(merged[-1][1], interval[1])]                                           #[1,4] = [1, max(4, 7) ] -> [1, 7]                                          
+    
+    return merged
+
+
+
+print(mergeIntervals(E))

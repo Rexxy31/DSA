@@ -11,7 +11,8 @@ public class dsa {
         // int[] C = {7,5,3,6,4};
         // int[] D = {1, 2, 3, 5, 7, 8, 9};
         // String[] F = {"flower","flow","flight"};
-        int[] pES = {1, 2, 3, 4};
+        // int[] pES = {1, 2, 3, 4};
+        int[][] mI = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -20,7 +21,8 @@ public class dsa {
         // System.out.println(maxProfit(C));
         // System.out.println(longestCommonPrefix(D));
         // System.out.println(summaryRanges(F));
-        System.out.println(productExceptSelf(pES));
+        // System.out.println(productExceptSelf(pES));
+        System.out.println(Arrays.deepToString(mergeIntervals(mI)));
 
 
     }
@@ -237,6 +239,26 @@ public class dsa {
         }
 
         return Arrays.toString(result);
+    }
+
+    public static int[][] mergeIntervals(int[][] intervals) {
+        if (intervals.length == 0) {
+            return new int[0][0];
+        }
+
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+
+        List<int[]> merged = new ArrayList<>();
+
+        for (int[] interval : intervals) {
+            if (merged.isEmpty() || merged.get(merged.size() - 1)[1] < interval[0]) {
+                merged.add(interval);
+            } else {
+                merged.get(merged.size() - 1)[1] = Math.max(merged.get(merged.size() - 1)[1], interval[1]);
+            }
+        }
+
+        return merged.toArray(new int[merged.size()][]);
     }
 
 }

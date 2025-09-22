@@ -13,6 +13,7 @@ This repository contains implementations of various data structures and algorith
 - **Longest Common Prefix**: Finds the longest common prefix string amongst an array of strings (LeetCode 14).
 - **Summary Ranges**: Summarizes the ranges of consecutive numbers in an array (LeetCode 228).
 - **Product Except Self**: Computes the product of all elements except the current one (LeetCode 238).
+- **Merge Intervals**: Merges overlapping intervals (LeetCode 56).
 
 
 ## How to Run
