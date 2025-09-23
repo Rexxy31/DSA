@@ -18,8 +18,10 @@ public class dsa {
         // String jewels = "aA";
         // String stones = "aAAbbbb";
         // int[] cD = {1, 2, 3, 4};
-        String ransomeNote = "aab";
-        String magazine = "baa";
+        // String ransomeNote = "aab";
+        // String magazine = "baa";
+        String s = "anagram";
+        String t = "nagaram";
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -32,7 +34,8 @@ public class dsa {
         // System.out.println(Arrays.deepToString(mergeIntervals(mI)));
         // System.out.println(numJewelsInStones(jewels, stones));
         // System.out.println(containsDuplicates(cD));
-        System.out.println(canConstruct(ransomeNote, magazine));
+        // System.out.println(canConstruct(ransomeNote, magazine));
+        System.out.println(isAnagram(s, t));
 
 
     }
@@ -312,6 +315,31 @@ public class dsa {
             if (map.getOrDefault(c, 0) > 0) {
                 map.put(c, map.get(c) - 1);
             } else {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        HashMap<Character, Integer> map = new HashMap<>();
+        // HashMap<Character, Integer> mmap = new HashMap<>();
+
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        for (char c : t.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) - 1);
+        }
+
+        for (int val : map.values()) {
+            if (val != 0) {
                 return false;
             }
         }

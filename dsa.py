@@ -251,10 +251,23 @@
 
 from collections import Counter
 
-def canConstruct(ransomNote, magazine):
-    ransom_counter = Counter(ransomNote)
-    magazine_counter = Counter(magazine)
+# def canConstruct(ransomNote, magazine):
+#     ransom_counter = Counter(ransomNote)
+#     magazine_counter = Counter(magazine)
 
-    return all(ransom_counter[c] <= magazine_counter[c] for c in ransom_counter)
+#     return all(ransom_counter[c] <= magazine_counter[c] for c in ransom_counter)
     
-print(canConstruct('aab', 'baa'))
+# print(canConstruct('aab', 'baa'))
+
+
+def isAnagram(s, t):
+    if len(s) != len(t):
+        return False
+
+    s_counter = Counter(s)
+    t_counter = Counter(t)
+
+    return s_counter == t_counter
+    
+
+print(isAnagram('anagram', 'bagaram'))
