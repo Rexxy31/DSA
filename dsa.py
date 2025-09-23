@@ -216,17 +216,35 @@
 
 
 
-# print(mergeIntervals(E))
+# # print(mergeIntervals(E))
 
-def numJewelsInStones(jewels, stones):
-    s = set(jewels)
-    count = 0
+# def numJewelsInStones(jewels, stones):
+#     s = set(jewels)
+#     count = 0
 
-    for stone in stones:
-        if stone in s:
-            count += 1
+#     for stone in stones:
+#         if stone in s:
+#             count += 1
 
-    return count
+#     return count
 
 
-print(numJewelsInStones('aA', 'aAAbbbb'))
+# print(numJewelsInStones('aA', 'aAAbbbb'))
+
+def containsDuplicate(nums):
+    s = set()
+
+    for num in nums:
+        if num in s:
+            return True
+        else:
+            s.add(num)
+    
+    return False
+
+#or one line->  return len(nums) != len(set(nums))
+
+
+G = [1, 2, 3, 2]
+
+print(containsDuplicate(G))

@@ -15,8 +15,9 @@ public class dsa {
         // String[] F = {"flower","flow","flight"};
         // int[] pES = {1, 2, 3, 4};
         // int[][] mI = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
-        String jewels = "aA";
-        String stones = "aAAbbbb";
+        // String jewels = "aA";
+        // String stones = "aAAbbbb";
+        int[] cD = {1, 2, 3, 4};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -27,7 +28,8 @@ public class dsa {
         // System.out.println(summaryRanges(F));
         // System.out.println(productExceptSelf(pES));
         // System.out.println(Arrays.deepToString(mergeIntervals(mI)));
-        System.out.println(numJewelsInStones(jewels, stones));
+        // System.out.println(numJewelsInStones(jewels, stones));
+        System.out.println(containsDuplicates(cD));
 
 
     }
@@ -281,6 +283,19 @@ public class dsa {
         }
 
         return count;
+    }
+
+    public static boolean containsDuplicates(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+
+        for ( int num : nums) {
+            if (s.contains(num)){
+                return true;
+            } else {
+                s.add(num);
+            }
+        }
+        return false;
     }
 
 }

@@ -18,6 +18,7 @@ This repository contains implementations of various data structures and algorith
 
 ### Hashmaps & Sets
 - **Jewels and Stones**: Counts the number of stones that are also jewels (LeetCode 771).
+- **Contains Duplicate**: Checks if an array contains any duplicate elements (LeetCode 217).
 
 
 ## How to Run
