@@ -4,6 +4,7 @@ This repository contains implementations of various data structures and algorith
 
 ## Algorithms Implemented
 
+### Arrays & Strings
 - **Binary Search**: Searches for a target value in a sorted array (LeetCode 704).
 - **Closest to Zero**: Finds the number closest to zero in an array, preferring positive if both exist (LeetCode 2239).
 - **Merge Alternately**: Merges two strings alternately (LeetCode 1768).
@@ -14,6 +15,8 @@ This repository contains implementations of various data structures and algorith
 - **Summary Ranges**: Summarizes the ranges of consecutive numbers in an array (LeetCode 228).
 - **Product Except Self**: Computes the product of all elements except the current one (LeetCode 238).
 - **Merge Intervals**: Merges overlapping intervals (LeetCode 56).
+
+### Hashmaps & Sets
 - **Jewels and Stones**: Counts the number of stones that are also jewels (LeetCode 771).
 
 
