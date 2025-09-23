@@ -17,7 +17,9 @@ public class dsa {
         // int[][] mI = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         // String jewels = "aA";
         // String stones = "aAAbbbb";
-        int[] cD = {1, 2, 3, 4};
+        // int[] cD = {1, 2, 3, 4};
+        String ransomeNote = "aab";
+        String magazine = "baa";
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -29,7 +31,8 @@ public class dsa {
         // System.out.println(productExceptSelf(pES));
         // System.out.println(Arrays.deepToString(mergeIntervals(mI)));
         // System.out.println(numJewelsInStones(jewels, stones));
-        System.out.println(containsDuplicates(cD));
+        // System.out.println(containsDuplicates(cD));
+        System.out.println(canConstruct(ransomeNote, magazine));
 
 
     }
@@ -296,6 +299,24 @@ public class dsa {
             }
         }
         return false;
+    }
+
+    public static boolean canConstruct(String ransomeNote, String magazine) {
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for (char c : magazine.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        for (char c : ransomeNote.toCharArray()) {
+            if (map.getOrDefault(c, 0) > 0) {
+                map.put(c, map.get(c) - 1);
+            } else {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }

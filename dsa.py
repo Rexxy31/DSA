@@ -231,20 +231,30 @@
 
 # print(numJewelsInStones('aA', 'aAAbbbb'))
 
-def containsDuplicate(nums):
-    s = set()
+# def containsDuplicate(nums):
+#     s = set()
 
-    for num in nums:
-        if num in s:
-            return True
-        else:
-            s.add(num)
+#     for num in nums:
+#         if num in s:
+#             return True
+#         else:
+#             s.add(num)
     
-    return False
+#     return False
 
 #or one line->  return len(nums) != len(set(nums))
 
 
-G = [1, 2, 3, 2]
+# G = [1, 2, 3, 2]
 
-print(containsDuplicate(G))
+# print(containsDuplicate(G))
+
+from collections import Counter
+
+def canConstruct(ransomNote, magazine):
+    ransom_counter = Counter(ransomNote)
+    magazine_counter = Counter(magazine)
+
+    return all(ransom_counter[c] <= magazine_counter[c] for c in ransom_counter)
+    
+print(canConstruct('aab', 'baa'))
