@@ -198,22 +198,35 @@
 
 # print(productExceptSelf(F))
 
-E = [[1,3],[2,6],[8,10],[15,18]]
-[[4,7],[1,4]] -> [1, 4], [4,7]
+# E = [[1,3],[2,6],[8,10],[15,18]]
+# [[4,7],[1,4]] -> [1, 4], [4,7]
 
 
-def mergeIntervals(intervals):
-    intervals.sort(key=lambda interval: interval[0])
-    merged = []
+# def mergeIntervals(intervals):
+#     intervals.sort(key=lambda interval: interval[0])
+#     merged = []
 
-    for interval in intervals:
-        if not merged or merged[-1][1] < interval[0]:                                         #not merged          4<4 false
-            merged.append(interval)                                                           #[1,4]  
-        else:
-            merged[-1] = [merged[-1][0], max(merged[-1][1], interval[1])]                                           #[1,4] = [1, max(4, 7) ] -> [1, 7]                                          
+#     for interval in intervals:
+#         if not merged or merged[-1][1] < interval[0]:                                         #not merged          4<4 false
+#             merged.append(interval)                                                           #[1,4]  
+#         else:
+#             merged[-1] = [merged[-1][0], max(merged[-1][1], interval[1])]                                           #[1,4] = [1, max(4, 7) ] -> [1, 7]                                          
     
-    return merged
+#     return merged
 
 
 
-print(mergeIntervals(E))
+# print(mergeIntervals(E))
+
+def numJewelsInStones(jewels, stones):
+    s = set(jewels)
+    count = 0
+
+    for stone in stones:
+        if stone in s:
+            count += 1
+
+    return count
+
+
+print(numJewelsInStones('aA', 'aAAbbbb'))

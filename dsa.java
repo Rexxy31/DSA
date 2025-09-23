@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class dsa {
     public static void main(String[] args) {
@@ -12,7 +14,9 @@ public class dsa {
         // int[] D = {1, 2, 3, 5, 7, 8, 9};
         // String[] F = {"flower","flow","flight"};
         // int[] pES = {1, 2, 3, 4};
-        int[][] mI = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+        // int[][] mI = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+        String jewels = "aA";
+        String stones = "aAAbbbb";
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -22,7 +26,8 @@ public class dsa {
         // System.out.println(longestCommonPrefix(D));
         // System.out.println(summaryRanges(F));
         // System.out.println(productExceptSelf(pES));
-        System.out.println(Arrays.deepToString(mergeIntervals(mI)));
+        // System.out.println(Arrays.deepToString(mergeIntervals(mI)));
+        System.out.println(numJewelsInStones(jewels, stones));
 
 
     }
@@ -259,6 +264,23 @@ public class dsa {
         }
 
         return merged.toArray(new int[merged.size()][]);
+    }
+
+    public static int numJewelsInStones(String jewels, String stones) {
+        Set<Character> jSet = new HashSet<>();
+        int count = 0;
+
+        for (char j : jewels.toCharArray()) {
+            jSet.add(j);
+        }
+
+        for (char s : stones.toCharArray()){
+            if (jSet.contains(s)) {
+                count += 1;
+            }
+        }
+
+        return count;
     }
 
 }
