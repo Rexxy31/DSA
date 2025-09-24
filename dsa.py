@@ -260,14 +260,29 @@ from collections import Counter
 # print(canConstruct('aab', 'baa'))
 
 
-def isAnagram(s, t):
-    if len(s) != len(t):
-        return False
+# def isAnagram(s, t):
+#     if len(s) != len(t):
+#         return False
 
-    s_counter = Counter(s)
-    t_counter = Counter(t)
+#     s_counter = Counter(s)
+#     t_counter = Counter(t)
 
-    return s_counter == t_counter
+#     return s_counter == t_counter
     
 
-print(isAnagram('anagram', 'bagaram'))
+# print(isAnagram('anagram', 'bagaram'))
+
+
+def twoSum(nums, target):
+    seen = {}
+
+    for i, num in enumerate(nums):
+        comp = target - num
+        if comp in seen:
+            return [seen[comp], i]
+        else:
+            seen[num] = i
+
+nums = [2, 7, 4, 6]
+
+print(twoSum(nums, 9))

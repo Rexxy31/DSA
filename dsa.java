@@ -20,8 +20,9 @@ public class dsa {
         // int[] cD = {1, 2, 3, 4};
         // String ransomeNote = "aab";
         // String magazine = "baa";
-        String s = "anagram";
-        String t = "nagaram";
+        // String s = "anagram";
+        // String t = "nagaram";
+        int[] twoSum = {2, 7, 4, 6};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -35,7 +36,8 @@ public class dsa {
         // System.out.println(numJewelsInStones(jewels, stones));
         // System.out.println(containsDuplicates(cD));
         // System.out.println(canConstruct(ransomeNote, magazine));
-        System.out.println(isAnagram(s, t));
+        // System.out.println(isAnagram(s, t));
+        System.out.println(Arrays.toString(twoSum(twoSum, 9)));
 
 
     }
@@ -345,6 +347,23 @@ public class dsa {
         }
 
         return true;
+    }
+
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            int y = target - nums[i];
+            if (map.containsKey(y) && map.get(y) != i) {
+                return new int[] {i, map.get(y)};
+            }
+        }
+
+        throw new IllegalArgumentException("No twosum solution");
     }
 
 }

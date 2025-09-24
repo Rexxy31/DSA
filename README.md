@@ -21,6 +21,7 @@ This repository contains implementations of various data structures and algorith
 - **Contains Duplicate**: Checks if an array contains any duplicate elements (LeetCode 217).
 - **Ransom Note**: Determines if a ransom note can be constructed from a magazine (LeetCode 383).
 - **Valid Anagram**: Checks if two strings are anagrams of each other (LeetCode 242).
+- **Two Sum**: Finds two numbers in an array that add up to a target sum (LeetCode 1).
 
 
 ## How to Run
