@@ -24,7 +24,7 @@ public class dsa {
         // String t = "nagaram";
         // int[] twoSum = {2, 7, 4, 6};
         int[][] mX = {{1,2,3},{4,5,6},{7,8,9}};
-        int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+        // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -40,7 +40,8 @@ public class dsa {
         // System.out.println(canConstruct(ransomeNote, magazine));
         // System.out.println(isAnagram(s, t));
         // System.out.println(Arrays.toString(twoSum(twoSum, 9)));
-        System.out.println((spiralOrder(mX2)));
+        // System.out.println((spiralOrder(mX2)));
+        System.out.println(Arrays.deepToString(rotateImage(mX)));
 
 
     }
@@ -407,5 +408,31 @@ public class dsa {
             }
         }
         return ans;
+    }
+
+    public static int[][] rotateImage(int[][] matrix) {
+        int n = matrix.length;
+
+        for (int i = 0; i < n ; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+
+            for (int i = 0; i < n; i++) {
+                int left = 0;
+                int right = n - 1;
+
+                while (left < right) {
+                    int temp = matrix[i][left];
+                    matrix[i][left] = matrix[i][right];
+                    matrix[i][right] = temp;
+                    left++;
+                    right--;
+                }
+            }
+        return matrix;
     }
 }
