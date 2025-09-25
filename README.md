@@ -15,6 +15,7 @@ This repository contains implementations of various data structures and algorith
 - **Summary Ranges**: Summarizes the ranges of consecutive numbers in an array (LeetCode 228).
 - **Product Except Self**: Computes the product of all elements except the current one (LeetCode 238).
 - **Merge Intervals**: Merges overlapping intervals (LeetCode 56).
+- **Spiral Matrix**: Traverses a 2D matrix in spiral order (LeetCode 54).
 
 ### Hashmaps & Sets
 - **Jewels and Stones**: Counts the number of stones that are also jewels (LeetCode 771).
