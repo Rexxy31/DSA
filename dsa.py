@@ -287,56 +287,72 @@ from collections import Counter
 
 # print(twoSum(nums, 9))
 
-def spiralOrder(matrix):
-    m = len(matrix)
-    n = len(matrix[0])
-    ans = []
-    i = 0
-    j = 0                                                                                   # 1 2 3   
-    UP = 0                                                                                  # 4 5 6
-    RIGHT = 1                                                                               # 7 8 9
-    DOWN = 2
-    LEFT = 3
-    direction = RIGHT
+# def spiralOrder(matrix):
+#     m = len(matrix)
+#     n = len(matrix[0])
+#     ans = []
+#     i = 0
+#     j = 0                                                                                   # 1 2 3   
+#     UP = 0                                                                                  # 4 5 6
+#     RIGHT = 1                                                                               # 7 8 9
+#     DOWN = 2
+#     LEFT = 3
+#     direction = RIGHT
 
-    UP_WALL = 0
-    RIGHT_WALL = n
-    DOWN_WALL = m
-    LEFT_WALL = -1
+#     UP_WALL = 0
+#     RIGHT_WALL = n
+#     DOWN_WALL = m
+#     LEFT_WALL = -1
 
-    while len(ans) != m*n:
-        if direction == RIGHT:
-            while j < RIGHT_WALL:
-                ans.append(matrix[i][j])
-                j += 1
-            i, j = i+1, j-1
-            RIGHT_WALL -=1
-            direction = DOWN
-        elif direction == DOWN:
-            while i < DOWN_WALL:
-                ans.append(matrix[i][j])
-                i += 1
-            i, j = i-1, j-1
-            DOWN_WALL -= 1
-            direction = LEFT
-        elif direction == LEFT:
-            while j > LEFT_WALL:
-                ans.append(matrix[i][j])
-                j -= 1
-            i, j = i-1, j+1
-            LEFT_WALL += 1
-            direction = UP
-        else:
-            while i > UP_WALL:
-                ans.append(matrix[i][j])
-                i -= 1
-            i, j = i+1, j+1
-            UP_WALL += 1
-            direction = RIGHT
+#     while len(ans) != m*n:
+#         if direction == RIGHT:
+#             while j < RIGHT_WALL:
+#                 ans.append(matrix[i][j])
+#                 j += 1
+#             i, j = i+1, j-1
+#             RIGHT_WALL -=1
+#             direction = DOWN
+#         elif direction == DOWN:
+#             while i < DOWN_WALL:
+#                 ans.append(matrix[i][j])
+#                 i += 1
+#             i, j = i-1, j-1
+#             DOWN_WALL -= 1
+#             direction = LEFT
+#         elif direction == LEFT:
+#             while j > LEFT_WALL:
+#                 ans.append(matrix[i][j])
+#                 j -= 1
+#             i, j = i-1, j+1
+#             LEFT_WALL += 1
+#             direction = UP
+#         else:
+#             while i > UP_WALL:
+#                 ans.append(matrix[i][j])
+#                 i -= 1
+#             i, j = i+1, j+1
+#             UP_WALL += 1
+#             direction = RIGHT
 
-    return ans
+#     return ans
 
 
-mx = [[1,2,3],[4,5,6],[7,8,9]]
+# mx = [[1,2,3],[4,5,6],[7,8,9]]
 
-print(spiralOrder(mx))
+# print(spiralOrder(mx))
+
+def rotateImage(matrix):
+    n = len(matrix)
+
+    for i in range(n):
+        for j in range(i+1, n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+    
+    for i in range(n):
+        for j in range(n // 2):
+            matrix[i][j], matrix[i][n-j-1] = matrix[i][n-j-1], matrix[i][j]
+
+    return matrix
+
+rI = [[1,2,3],[4,5,6],[7,8,9]]
+print(rotateImage(rI))
