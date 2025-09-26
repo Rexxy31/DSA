@@ -16,6 +16,8 @@ This repository contains implementations of various data structures and algorith
 - **Product Except Self**: Computes the product of all elements except the current one (LeetCode 238).
 - **Merge Intervals**: Merges overlapping intervals (LeetCode 56).
 - **Spiral Matrix**: Traverses a 2D matrix in spiral order (LeetCode 54).
+- **Rotate Image**: Rotates a 2D matrix 90 degrees clockwise (LeetCode 48).
+- **Majority Element**: Finds the majority element that appears more than n/2 times (LeetCode 169).
 
 ### Hashmaps & Sets
 - **Jewels and Stones**: Counts the number of stones that are also jewels (LeetCode 771).

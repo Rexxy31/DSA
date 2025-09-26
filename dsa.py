@@ -341,18 +341,46 @@ from collections import Counter
 
 # print(spiralOrder(mx))
 
-def rotateImage(matrix):
-    n = len(matrix)
+# def rotateImage(matrix):
+#     n = len(matrix)
 
-    for i in range(n):
-        for j in range(i+1, n):
-            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+#     for i in range(n):
+#         for j in range(i+1, n):
+#             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
     
-    for i in range(n):
-        for j in range(n // 2):
-            matrix[i][j], matrix[i][n-j-1] = matrix[i][n-j-1], matrix[i][j]
+#     for i in range(n):
+#         for j in range(n // 2):
+#             matrix[i][j], matrix[i][n-j-1] = matrix[i][n-j-1], matrix[i][j]
 
-    return matrix
+#     return matrix
 
-rI = [[1,2,3],[4,5,6],[7,8,9]]
-print(rotateImage(rI))
+# rI = [[1,2,3],[4,5,6],[7,8,9]]
+# print(rotateImage(rI))
+
+def majorityElement(nums):
+    # n = len(nums)
+
+    # c_element = Counter(nums)
+
+    # for i in c_element:
+    #     if c_element[i] > n // 2:
+    #         return i
+
+    candidate = None
+    count = 0
+
+    for num in nums:
+        if count == 0:
+            candidate = num
+        if candidate == num:
+            count += 1
+        else:
+            count -= 1
+            
+    return candidate
+        
+    
+
+mE = [1, 2, 3]
+print(majorityElement(mE))
+

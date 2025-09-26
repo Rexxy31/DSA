@@ -23,7 +23,8 @@ public class dsa {
         // String s = "anagram";
         // String t = "nagaram";
         // int[] twoSum = {2, 7, 4, 6};
-        int[][] mX = {{1,2,3},{4,5,6},{7,8,9}};
+        // int[][] mX = {{1,2,3},{4,5,6},{7,8,9}};
+        int[] mE = {1, 2, 4};
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
@@ -41,7 +42,8 @@ public class dsa {
         // System.out.println(isAnagram(s, t));
         // System.out.println(Arrays.toString(twoSum(twoSum, 9)));
         // System.out.println((spiralOrder(mX2)));
-        System.out.println(Arrays.deepToString(rotateImage(mX)));
+        // System.out.println(Arrays.deepToString(rotateImage(mX)));
+        System.out.println(majorityElement(mE));
 
 
     }
@@ -434,5 +436,34 @@ public class dsa {
                 }
             }
         return matrix;
+    }
+
+    public static Integer majorityElement(int[] nums) {
+        int candidate = nums[0];
+        int count = 0;
+
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
+            }
+            if (candidate == num) {
+                count += 1;
+            } else {
+                count -= 1;
+            }
+        }
+        
+        count = 0;
+        for (int num : nums) {
+            if (num == candidate) {
+                count++;
+            }
+        }
+
+        if (count > nums.length / 2) {
+            return candidate;
+        } else {
+            return null;
+        }
     }
 }
