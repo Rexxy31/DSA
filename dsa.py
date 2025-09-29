@@ -401,23 +401,36 @@ from collections import Counter, defaultdict
 
 # print(maxNumberOfBalloons(text))
 
-def sortedSquares(nums):
-    n = len(nums)
-    ans = [0] * n
-    left, right = 0, n - 1
-    pos = n - 1
+# def sortedSquares(nums):
+#     n = len(nums)
+#     ans = [0] * n
+#     left, right = 0, n - 1
+#     pos = n - 1
 
-    while left <= right:
-        if abs(nums[left]) > abs(nums[right]):
-            ans[pos] = nums[left] * nums[left]
-            left += 1
-        else:
-            ans[pos] = nums[right] * nums[right]
-            right -= 1
-        pos -= 1
+#     while left <= right:
+#         if abs(nums[left]) > abs(nums[right]):
+#             ans[pos] = nums[left] * nums[left]
+#             left += 1
+#         else:
+#             ans[pos] = nums[right] * nums[right]
+#             right -= 1
+#         pos -= 1
 
-    return ans
+#     return ans
 
-nums = [-4,-1,0,3,10]
+# nums = [-4,-1,0,3,10]
 
-print(sortedSquares(nums))
+# print(sortedSquares(nums))
+
+def reverseString(s):
+    n = len(s)
+    l, r = 0, n - 1
+
+    while l < r:
+        s[l], s[r] = s[r], s[l]
+        l +=1
+        r -= 1
+    return s
+
+rS = ["h","e","l","l","o"]
+print(reverseString(rS))

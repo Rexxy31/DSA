@@ -26,7 +26,8 @@ public class dsa {
         // int[][] mX = {{1,2,3},{4,5,6},{7,8,9}};
         // int[] mE = {1, 2, 4};
         // String text = "loonbalxballpoon";
-        int[] sS = {-4,-1,0,3,10};
+        // int[] sS = {-4,-1,0,3,10};
+        char [] rS = {'h', 'e', 'l', 'l', 'o'};
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
@@ -47,7 +48,8 @@ public class dsa {
         // System.out.println(Arrays.deepToString(rotateImage(mX)));
         // System.out.println(majorityElement(mE));
         // System.out.println(maxNumberOfBalloons(text));
-        System.out.println(Arrays.toString(sortedSquares(sS)));
+        // System.out.println(Arrays.toString(sortedSquares(sS)));
+        System.out.println(Arrays.toString(reverseString(rS)));
 
 
     }
@@ -512,5 +514,20 @@ public class dsa {
             pos--;
         }
         return ans;
+    }
+
+    public static char[] reverseString(char[] s) {
+        int n = s.length;
+        int l = 0;
+        int r = n -1;
+
+        while (l < r) {
+           char temp = s[l];
+           s[l] = s[r];
+           s[r] = temp;
+           l++;
+           r--;
+        }
+        return s;
     }
 }

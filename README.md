@@ -29,6 +29,7 @@ This repository contains implementations of various data structures and algorith
 
 ### 2 Pointers
 - **Squares of a Sorted Array**: Given an integer array sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order (LeetCode 977).
+- **Reverse String**: Reverses a string in-place (LeetCode 344).
 
 ## How to Run
 
