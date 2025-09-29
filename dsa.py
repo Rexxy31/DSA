@@ -422,15 +422,40 @@ from collections import Counter, defaultdict
 
 # print(sortedSquares(nums))
 
-def reverseString(s):
+# def reverseString(s):
+#     n = len(s)
+#     l, r = 0, n - 1
+
+#     while l < r:
+#         s[l], s[r] = s[r], s[l]
+#         l +=1
+#         r -= 1
+#     return s
+
+# rS = ["h","e","l","l","o"]
+# print(reverseString(rS))
+
+def isPalindrome(s):
     n = len(s)
-    l, r = 0, n - 1
+    L = 0
+    R = n - 1
 
-    while l < r:
-        s[l], s[r] = s[r], s[l]
-        l +=1
-        r -= 1
-    return s
+    while L < R:
+        if not s[L].isalnum():
+            L += 1
+            continue
 
-rS = ["h","e","l","l","o"]
-print(reverseString(rS))
+        if not s[R].isalnum():
+            R -= 1
+            continue
+
+        if s[L].lower() != s[R].lower():
+            return False
+        
+        L += 1
+        R -= 1
+    return True
+
+Pal = "race  car"
+
+print(isPalindrome(Pal))

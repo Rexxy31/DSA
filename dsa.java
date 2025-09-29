@@ -27,7 +27,8 @@ public class dsa {
         // int[] mE = {1, 2, 4};
         // String text = "loonbalxballpoon";
         // int[] sS = {-4,-1,0,3,10};
-        char [] rS = {'h', 'e', 'l', 'l', 'o'};
+        // char [] rS = {'h', 'e', 'l', 'l', 'o'};
+        String pal = "A man, a plan, a canal: Panama";
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
@@ -49,7 +50,8 @@ public class dsa {
         // System.out.println(majorityElement(mE));
         // System.out.println(maxNumberOfBalloons(text));
         // System.out.println(Arrays.toString(sortedSquares(sS)));
-        System.out.println(Arrays.toString(reverseString(rS)));
+        // System.out.println(Arrays.toString(reverseString(rS)));
+        System.out.println(isPalindrome(pal));
 
 
     }
@@ -529,5 +531,26 @@ public class dsa {
            r--;
         }
         return s;
+    }
+
+    public static boolean isPalindrome(String s) {
+        int n = s.length();
+        int L = 0;
+        int R = n - 1;
+
+        while (L < R) {
+            while (L < R && !Character.isLetterOrDigit(s.charAt(L))) {
+            L++;
+        }
+        while (L < R && !Character.isLetterOrDigit(s.charAt(R))) {
+            R--;
+        }
+        if (L < R && Character.toLowerCase(s.charAt(L)) != Character.toLowerCase(s.charAt(R))) {
+            return false;
+        }
+        L++;
+        R--;
+        }
+        return true;
     }
 }
