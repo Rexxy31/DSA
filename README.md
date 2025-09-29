@@ -27,6 +27,9 @@ This repository contains implementations of various data structures and algorith
 - **Majority Element**: Finds the majority element that appears more than n/2 times (LeetCode 169).
 - **Maximum Number of Balloons**: Counts the maximum number of "balloon" instances that can be formed from a given text (LeetCode 1189).
 
+### 2 Pointers
+- **Squares of a Sorted Array**: Given an integer array sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order (LeetCode 977).
+
 ## How to Run
 
 ### Java

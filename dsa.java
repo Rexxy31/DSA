@@ -25,7 +25,8 @@ public class dsa {
         // int[] twoSum = {2, 7, 4, 6};
         // int[][] mX = {{1,2,3},{4,5,6},{7,8,9}};
         // int[] mE = {1, 2, 4};
-        String text = "loonbalxballpoon";
+        // String text = "loonbalxballpoon";
+        int[] sS = {-4,-1,0,3,10};
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
@@ -45,7 +46,8 @@ public class dsa {
         // System.out.println((spiralOrder(mX2)));
         // System.out.println(Arrays.deepToString(rotateImage(mX)));
         // System.out.println(majorityElement(mE));
-        System.out.println(maxNumberOfBalloons(text));
+        // System.out.println(maxNumberOfBalloons(text));
+        System.out.println(Arrays.toString(sortedSquares(sS)));
 
 
     }
@@ -490,5 +492,14 @@ public class dsa {
                 Math.min(map.get('l') / 2, 
                     Math.min(map.get('o') / 2, map.get('n'))));
         }
+    }
+
+    public static int[] sortedSquares(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            nums[i] = (int) Math.pow(nums[i], 2);
+        }
+        Arrays.sort(nums);
+        return nums;
     }
 }

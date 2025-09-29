@@ -383,20 +383,41 @@ from collections import Counter, defaultdict
 # mE = [1, 2, 3]
 # print(majorityElement(mE))
 
-def maxNumberOfBalloons(text):
-    counter = defaultdict(int)
-    target = "ballon"
+# def maxNumberOfBalloons(text):
+#     counter = defaultdict(int)
+#     target = "ballon"
 
-    for c in text:
-        if c in target:
-            counter[c] += 1
+#     for c in text:
+#         if c in target:
+#             counter[c] += 1
 
-    if any(c not in counter for c in target):
-        return 0
-    else:
-        return min(counter["b"], counter["a"], counter["l"] // 2, counter["o"] // 2, counter["n"])
+#     if any(c not in counter for c in target):
+#         return 0
+#     else:
+#         return min(counter["b"], counter["a"], counter["l"] // 2, counter["o"] // 2, counter["n"])
     
 
-text = "loonbalxballpoon"
+# text = "loonbalxballpoon"
 
-print(maxNumberOfBalloons(text))
+# print(maxNumberOfBalloons(text))
+
+def sortedSquares(nums):
+    n = len(nums)
+    ans = [0] * n
+    left, right = 0, n - 1
+    pos = n - 1
+
+    while left <= right:
+        if abs(nums[left]) > abs(nums[right]):
+            ans[pos] = nums[left] * nums[left]
+            left += 1
+        else:
+            ans[pos] = nums[right] * nums[right]
+            right -= 1
+        pos -= 1
+
+    return ans
+
+nums = [-4,-1,0,3,10]
+
+print(sortedSquares(nums))
