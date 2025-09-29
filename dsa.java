@@ -24,7 +24,8 @@ public class dsa {
         // String t = "nagaram";
         // int[] twoSum = {2, 7, 4, 6};
         // int[][] mX = {{1,2,3},{4,5,6},{7,8,9}};
-        int[] mE = {1, 2, 4};
+        // int[] mE = {1, 2, 4};
+        String text = "loonbalxballpoon";
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
@@ -43,7 +44,8 @@ public class dsa {
         // System.out.println(Arrays.toString(twoSum(twoSum, 9)));
         // System.out.println((spiralOrder(mX2)));
         // System.out.println(Arrays.deepToString(rotateImage(mX)));
-        System.out.println(majorityElement(mE));
+        // System.out.println(majorityElement(mE));
+        System.out.println(maxNumberOfBalloons(text));
 
 
     }
@@ -464,6 +466,29 @@ public class dsa {
             return candidate;
         } else {
             return null;
+        }
+    }
+
+    public static int maxNumberOfBalloons(String text) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        String target = "balloon";
+
+        for (char c : text.toCharArray()) {
+            if (target.indexOf(c) != -1) {
+                map.put(c, map.getOrDefault(c, 0) + 1);
+            }
+        }
+
+        if(!map.containsKey('b') ||
+        !map.containsKey('a') ||
+        !map.containsKey('l') ||
+        !map.containsKey('o') ||
+        !map.containsKey('n')) {
+            return 0;
+        } else {
+            return Math.min(Math.min(map.get('b'), map.get('a')),
+                Math.min(map.get('l') / 2, 
+                    Math.min(map.get('o') / 2, map.get('n'))));
         }
     }
 }

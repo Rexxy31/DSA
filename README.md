@@ -17,7 +17,6 @@ This repository contains implementations of various data structures and algorith
 - **Merge Intervals**: Merges overlapping intervals (LeetCode 56).
 - **Spiral Matrix**: Traverses a 2D matrix in spiral order (LeetCode 54).
 - **Rotate Image**: Rotates a 2D matrix 90 degrees clockwise (LeetCode 48).
-- **Majority Element**: Finds the majority element that appears more than n/2 times (LeetCode 169).
 
 ### Hashmaps & Sets
 - **Jewels and Stones**: Counts the number of stones that are also jewels (LeetCode 771).
@@ -25,7 +24,8 @@ This repository contains implementations of various data structures and algorith
 - **Ransom Note**: Determines if a ransom note can be constructed from a magazine (LeetCode 383).
 - **Valid Anagram**: Checks if two strings are anagrams of each other (LeetCode 242).
 - **Two Sum**: Finds two numbers in an array that add up to a target sum (LeetCode 1).
-
+- **Majority Element**: Finds the majority element that appears more than n/2 times (LeetCode 169).
+- **Maximum Number of Balloons**: Counts the maximum number of "balloon" instances that can be formed from a given text (LeetCode 1189).
 
 ## How to Run
 

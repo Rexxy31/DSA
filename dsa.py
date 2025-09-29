@@ -249,7 +249,7 @@
 
 # print(containsDuplicate(G))
 
-from collections import Counter
+from collections import Counter, defaultdict
 
 # def canConstruct(ransomNote, magazine):
 #     ransom_counter = Counter(ransomNote)
@@ -336,7 +336,6 @@ from collections import Counter
 
 #     return ans
 
-
 # mx = [[1,2,3],[4,5,6],[7,8,9]]
 
 # print(spiralOrder(mx))
@@ -357,30 +356,47 @@ from collections import Counter
 # rI = [[1,2,3],[4,5,6],[7,8,9]]
 # print(rotateImage(rI))
 
-def majorityElement(nums):
-    # n = len(nums)
+# def majorityElement(nums):
+#     # n = len(nums)
 
-    # c_element = Counter(nums)
+#     # c_element = Counter(nums)
 
-    # for i in c_element:
-    #     if c_element[i] > n // 2:
-    #         return i
+#     # for i in c_element:
+#     #     if c_element[i] > n // 2:
+#     #         return i
 
-    candidate = None
-    count = 0
+#     candidate = None
+#     count = 0
 
-    for num in nums:
-        if count == 0:
-            candidate = num
-        if candidate == num:
-            count += 1
-        else:
-            count -= 1
+#     for num in nums:
+#         if count == 0:
+#             candidate = num
+#         if candidate == num:
+#             count += 1
+#         else:
+#             count -= 1
             
-    return candidate
+#     return candidate
         
     
 
-mE = [1, 2, 3]
-print(majorityElement(mE))
+# mE = [1, 2, 3]
+# print(majorityElement(mE))
 
+def maxNumberOfBalloons(text):
+    counter = defaultdict(int)
+    target = "ballon"
+
+    for c in text:
+        if c in target:
+            counter[c] += 1
+
+    if any(c not in counter for c in target):
+        return 0
+    else:
+        return min(counter["b"], counter["a"], counter["l"] // 2, counter["o"] // 2, counter["n"])
+    
+
+text = "loonbalxballpoon"
+
+print(maxNumberOfBalloons(text))
