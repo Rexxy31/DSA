@@ -460,19 +460,38 @@ from collections import Counter, defaultdict
 
 # print(isPalindrome(Pal))
 
-def twoSum2(nums, target):
-    n = len(nums)
-    l = 0
-    r = n - 1
+# def twoSum2(nums, target):
+#     n = len(nums)
+#     l = 0
+#     r = n - 1
 
-    while l < r:
-        summ = nums[l] + nums[r]
-        if summ == target:
-            return [l+1, r+1]
-        elif summ < target:
-            l += 1
+#     while l < r:
+#         summ = nums[l] + nums[r]
+#         if summ == target:
+#             return [l+1, r+1]
+#         elif summ < target:
+#             l += 1
+#         else:
+#             r -= 1
+
+# ts2 = [2,11,15, 7]
+# print(twoSum2(ts2, 9))
+
+
+def calPoints(operations):
+    stk = []
+
+    for op in operations:
+        if op == "+":
+            stk.append(stk[-1] + stk[-2])
+        elif op == "D":
+            stk.append(stk[-1] * 2)
+        elif op == "C":
+            stk.pop()
         else:
-            r -= 1
+            stk.append(int(op))
+    
+    return sum(stk)
 
-ts2 = [2,11,15, 7]
-print(twoSum2(ts2, 9))
+ops = ["5","2","C","D","+"]
+print(calPoints(ops))

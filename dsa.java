@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Stack;
 
 public class dsa {
     public static void main(String[] args) {
@@ -29,7 +30,8 @@ public class dsa {
         // int[] sS = {-4,-1,0,3,10};
         // char [] rS = {'h', 'e', 'l', 'l', 'o'};
         // String pal = "A man, a plan, a canal: Panama";
-        int[] ts2 = {2,11,15, 7};
+        // int[] ts2 = {2,11,15, 7};
+        String[] baseball = {"5","-2","4","C","D","9","+","+"};
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
@@ -53,7 +55,8 @@ public class dsa {
         // System.out.println(Arrays.toString(sortedSquares(sS)));
         // System.out.println(Arrays.toString(reverseString(rS)));
         // System.out.println(isPalindrome(pal));
-        System.out.println(Arrays.toString(twoSum2(ts2, 9)));
+        // System.out.println(Arrays.toString(twoSum2(ts2, 9)));
+        System.out.println(calPoints(baseball));
 
 
     }
@@ -572,5 +575,29 @@ public class dsa {
             }
         }
         throw new IllegalArgumentException("no two sum solution");
+    }
+
+    public static int calPoints(String[] operations) {
+        Stack<Integer> stk = new Stack<>();
+
+        for (String op : operations) {
+            if (op.equals("+")) {
+                int last = stk.pop();
+                int secondLast = stk.peek();
+                stk.push(last);
+                stk.push(last + secondLast);
+            } else if (op.equals("D")) {
+                stk.push(stk.peek() * 2);
+            } else if (op.equals("C")) {
+                stk.pop();
+            } else {
+                stk.push(Integer.parseInt(op));
+            }
+        }
+        int sum = 0;
+        for (int s : stk) {
+            sum += s;
+        }
+        return sum;
     }
 }
