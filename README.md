@@ -31,6 +31,7 @@ This repository contains implementations of various data structures and algorith
 - **Squares of a Sorted Array**: Given an integer array sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order (LeetCode 977).
 - **Reverse String**: Reverses a string in-place (LeetCode 344).
 - **Valid Palindrome**: Checks if a string is a palindrome, ignoring case and non-alphanumeric characters (LeetCode 125).
+- **Two Sum II - Input Array Is Sorted**: Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number (LeetCode 167).
 
 ## How to Run
 

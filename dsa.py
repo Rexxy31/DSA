@@ -435,27 +435,44 @@ from collections import Counter, defaultdict
 # rS = ["h","e","l","l","o"]
 # print(reverseString(rS))
 
-def isPalindrome(s):
-    n = len(s)
-    L = 0
-    R = n - 1
+# def isPalindrome(s):
+#     n = len(s)
+#     L = 0
+#     R = n - 1
 
-    while L < R:
-        if not s[L].isalnum():
-            L += 1
-            continue
+#     while L < R:
+#         if not s[L].isalnum():
+#             L += 1
+#             continue
 
-        if not s[R].isalnum():
-            R -= 1
-            continue
+#         if not s[R].isalnum():
+#             R -= 1
+#             continue
 
-        if s[L].lower() != s[R].lower():
-            return False
+#         if s[L].lower() != s[R].lower():
+#             return False
         
-        L += 1
-        R -= 1
-    return True
+#         L += 1
+#         R -= 1
+#     return True
 
-Pal = "race  car"
+# Pal = "race  car"
 
-print(isPalindrome(Pal))
+# print(isPalindrome(Pal))
+
+def twoSum2(nums, target):
+    n = len(nums)
+    l = 0
+    r = n - 1
+
+    while l < r:
+        summ = nums[l] + nums[r]
+        if summ == target:
+            return [l+1, r+1]
+        elif summ < target:
+            l += 1
+        else:
+            r -= 1
+
+ts2 = [2,11,15, 7]
+print(twoSum2(ts2, 9))

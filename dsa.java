@@ -28,7 +28,8 @@ public class dsa {
         // String text = "loonbalxballpoon";
         // int[] sS = {-4,-1,0,3,10};
         // char [] rS = {'h', 'e', 'l', 'l', 'o'};
-        String pal = "A man, a plan, a canal: Panama";
+        // String pal = "A man, a plan, a canal: Panama";
+        int[] ts2 = {2,11,15, 7};
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
@@ -51,7 +52,8 @@ public class dsa {
         // System.out.println(maxNumberOfBalloons(text));
         // System.out.println(Arrays.toString(sortedSquares(sS)));
         // System.out.println(Arrays.toString(reverseString(rS)));
-        System.out.println(isPalindrome(pal));
+        // System.out.println(isPalindrome(pal));
+        System.out.println(Arrays.toString(twoSum2(ts2, 9)));
 
 
     }
@@ -552,5 +554,23 @@ public class dsa {
         R--;
         }
         return true;
+    }
+
+    public static int[] twoSum2(int[] nums, int target) {
+        int n = nums.length;
+        int L = 0;
+        int R = n - 1;
+
+        while (L < R) {
+            int summ = nums[L] + nums[R];
+            if (summ == target) {
+                return new int[] {L + 1, R + 1};
+            } else if (summ < target){
+                L++;
+            } else {
+                R--;
+            }
+        }
+        throw new IllegalArgumentException("no two sum solution");
     }
 }
