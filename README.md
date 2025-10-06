@@ -35,6 +35,7 @@ This repository contains implementations of various data structures and algorith
 
 ### Stacks
 - **Baseball Game**: Calculates the total score of a baseball game with operations (LeetCode 682).
+- **Valid Parentheses**: Checks if a string of parentheses is valid (LeetCode 20).
 
 ## How to Run
 

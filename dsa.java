@@ -31,8 +31,9 @@ public class dsa {
         // char [] rS = {'h', 'e', 'l', 'l', 'o'};
         // String pal = "A man, a plan, a canal: Panama";
         // int[] ts2 = {2,11,15, 7};
-        String[] baseball = {"5","-2","4","C","D","9","+","+"};
+        // String[] baseball = {"5","-2","4","C","D","9","+","+"};
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+        String vP = "([)";
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -56,7 +57,8 @@ public class dsa {
         // System.out.println(Arrays.toString(reverseString(rS)));
         // System.out.println(isPalindrome(pal));
         // System.out.println(Arrays.toString(twoSum2(ts2, 9)));
-        System.out.println(calPoints(baseball));
+        // System.out.println(calPoints(baseball));
+        System.out.println(validParenthese(vP));
 
 
     }
@@ -599,5 +601,30 @@ public class dsa {
             sum += s;
         }
         return sum;
+    }
+
+    public static boolean validParenthese(String s) {
+        HashMap<Character, Character> map = new HashMap<>();
+        Stack<Character> stk = new Stack<>();
+
+        map.put(')', '(');
+        map.put(']', '[');
+        map.put('}', '{');
+
+        for (char c : s.toCharArray()) {
+            if (!map.containsKey(c)) {
+                stk.add(c);
+            } else {
+                if (stk.isEmpty()) {
+                    return false;
+                } else {
+                    char popped = stk.pop();
+                    if (popped != map.get(c)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return stk.isEmpty();
     }
 }

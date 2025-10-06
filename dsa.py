@@ -478,20 +478,40 @@ from collections import Counter, defaultdict
 # print(twoSum2(ts2, 9))
 
 
-def calPoints(operations):
+# def calPoints(operations):
+#     stk = []
+
+#     for op in operations:
+#         if op == "+":
+#             stk.append(stk[-1] + stk[-2])
+#         elif op == "D":
+#             stk.append(stk[-1] * 2)
+#         elif op == "C":
+#             stk.pop()
+#         else:
+#             stk.append(int(op))
+    
+#     return sum(stk)
+
+# ops = ["5","2","C","D","+"]
+# print(calPoints(ops))
+
+def validParenthese(s):
+    hashmap = {")": "(", "}": "{", "]": "["}
     stk = []
 
-    for op in operations:
-        if op == "+":
-            stk.append(stk[-1] + stk[-2])
-        elif op == "D":
-            stk.append(stk[-1] * 2)
-        elif op == "C":
-            stk.pop()
+    for c in s:
+        if c not in hashmap:
+            stk.append(c)
         else:
-            stk.append(int(op))
+            if not stk:
+                return False
+            else:
+                popped = stk.pop()
+                if popped != hashmap[c]:
+                    return False
     
-    return sum(stk)
+    return not stk
 
-ops = ["5","2","C","D","+"]
-print(calPoints(ops))
+vP = '([])'
+print(validParenthese(vP))
