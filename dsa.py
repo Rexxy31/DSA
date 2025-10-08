@@ -496,22 +496,42 @@ from collections import Counter, defaultdict
 # ops = ["5","2","C","D","+"]
 # print(calPoints(ops))
 
-def validParenthese(s):
-    hashmap = {")": "(", "}": "{", "]": "["}
+# def validParenthese(s):
+#     hashmap = {")": "(", "}": "{", "]": "["}
+#     stk = []
+
+#     for c in s:
+#         if c not in hashmap:
+#             stk.append(c)
+#         else:
+#             if not stk:
+#                 return False
+#             else:
+#                 popped = stk.pop()
+#                 if popped != hashmap[c]:
+#                     return False
+    
+#     return not stk
+
+# vP = '([])'
+# print(validParenthese(vP))
+
+def dailyTemperatures(temperatures):
+    temps = temperatures
+    n = len(temps)
+    answer = [0] * n
     stk = []
 
-    for c in s:
-        if c not in hashmap:
-            stk.append(c)
-        else:
-            if not stk:
-                return False
-            else:
-                popped = stk.pop()
-                if popped != hashmap[c]:
-                    return False
-    
-    return not stk
 
-vP = '([])'
-print(validParenthese(vP))
+    for i, t in enumerate(temps):
+        while stk and stk[-1][0] < t:
+            stk_t, stk_i = stk.pop()
+            answer[stk_i] = i - stk_i
+
+        stk.append((t, i))
+
+    return answer
+
+dT = [73,74,75,71,69,72,76,73]
+
+print(dailyTemperatures(dT))

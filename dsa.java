@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -33,7 +34,8 @@ public class dsa {
         // int[] ts2 = {2,11,15, 7};
         // String[] baseball = {"5","-2","4","C","D","9","+","+"};
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
-        String vP = "([)";
+        // String vP = "([)";
+        int[] dT = {73,74,75,71,69,72,76,73};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -58,7 +60,8 @@ public class dsa {
         // System.out.println(isPalindrome(pal));
         // System.out.println(Arrays.toString(twoSum2(ts2, 9)));
         // System.out.println(calPoints(baseball));
-        System.out.println(validParenthese(vP));
+        // System.out.println(validParenthese(vP));
+        System.out.println(Arrays.toString(dailyTemperatures(dT)));
 
 
     }
@@ -626,5 +629,21 @@ public class dsa {
             }
         }
         return stk.isEmpty();
+    }
+
+    private static int[] dailyTemperatures(int[] temperatures) {
+        int n = temperatures.length;
+        int[] answers = new int[n];
+        Stack<int[]> stk = new Stack<>();
+
+        for (int i = 0; i < n; i++) {
+            int temp = temperatures[i];
+            while (!stk.isEmpty() && stk.peek()[0] < temp) {
+                int[] prev = stk.pop();
+                answers[prev[1]] = i - prev[1];
+            }
+            stk.push(new int[]{temp, i});
+        }
+        return answers;
     }
 }
