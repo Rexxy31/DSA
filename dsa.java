@@ -35,7 +35,8 @@ public class dsa {
         // String[] baseball = {"5","-2","4","C","D","9","+","+"};
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         // String vP = "([)";
-        int[] dT = {73,74,75,71,69,72,76,73};
+        // int[] dT = {73,74,75,71,69,72,76,73};
+        int[] dD = {1, 1, 2, 3, 3};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -61,7 +62,8 @@ public class dsa {
         // System.out.println(Arrays.toString(twoSum2(ts2, 9)));
         // System.out.println(calPoints(baseball));
         // System.out.println(validParenthese(vP));
-        System.out.println(Arrays.toString(dailyTemperatures(dT)));
+        // System.out.println(Arrays.toString(dailyTemperatures(dT)));
+        System.out.println(deleteDuplicates(dD));
 
 
     }
@@ -645,5 +647,26 @@ public class dsa {
             stk.push(new int[]{temp, i});
         }
         return answers;
+    }
+
+    // Definition for singly-linked list.
+    static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+    private static ListNode deleteDuplicates(ListNode head) {
+        ListNode cur = head;
+
+        while (cur != null && cur.next != null) {
+            if (cur.val == cur.next.val) {
+                cur.next = cur.next.next;
+            } else {
+                cur = cur.next;
+            }
+        }
+        return head;
     }
 }

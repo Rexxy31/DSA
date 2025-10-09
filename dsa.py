@@ -516,22 +516,39 @@ from collections import Counter, defaultdict
 # vP = '([])'
 # print(validParenthese(vP))
 
-def dailyTemperatures(temperatures):
-    temps = temperatures
-    n = len(temps)
-    answer = [0] * n
-    stk = []
+# def dailyTemperatures(temperatures):
+#     temps = temperatures
+#     n = len(temps)
+#     answer = [0] * n
+#     stk = []
 
 
-    for i, t in enumerate(temps):
-        while stk and stk[-1][0] < t:
-            stk_t, stk_i = stk.pop()
-            answer[stk_i] = i - stk_i
+#     for i, t in enumerate(temps):
+#         while stk and stk[-1][0] < t:
+#             stk_t, stk_i = stk.pop()
+#             answer[stk_i] = i - stk_i
 
-        stk.append((t, i))
+#         stk.append((t, i))
 
-    return answer
+#     return answer
 
-dT = [73,74,75,71,69,72,76,73]
+# dT = [73,74,75,71,69,72,76,73]
 
-print(dailyTemperatures(dT))
+# print(dailyTemperatures(dT))
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    cur = head
+
+    while cur and cur.next:
+        if cur.val == cur.next.val:
+            cur.next = cur.next.next
+        else:
+            cur = cur.next
+    
+    return head

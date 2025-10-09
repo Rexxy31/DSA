@@ -38,6 +38,9 @@ This repository contains implementations of various data structures and algorith
 - **Valid Parentheses**: Checks if a string of parentheses is valid (LeetCode 20).
 - **Daily Temperatures**: Returns an array indicating days until warmer temperature (LeetCode 739).
 
+### Linked Lists
+- **Remove Duplicates from Sorted List**: Removes duplicates from a sorted linked list (LeetCode 83).
+
 ## How to Run
 
 ### Java
