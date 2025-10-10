@@ -576,24 +576,44 @@ class ListNode:
 
 
 # Example implementation of isBadVersion for testing purposes
-def isBadVersion(version):
-    # Replace 4 with the first bad version for your test case
-    first_bad = 5
-    return version >= first_bad
+# def isBadVersion(version):
+#     # Replace 4 with the first bad version for your test case
+#     first_bad = 5
+#     return version >= first_bad
 
-def firstBadVersion(n):
+# def firstBadVersion(n):
+#     L = 1
+#     R = n
+
+#     while L < R:
+#         M = L + (R - L) // 2
+#         if isBadVersion(M):
+#             R = M
+#         else:
+#             L = M + 1
+
+#     return L
+
+
+# print(firstBadVersion(4))
+
+
+def isPerfectSquare(n):
+    if n == 1:
+        return True
+    
     L = 1
-    R = n
+    R = n - 1
 
-    while L < R:
-        M = L + (R - L) // 2
-        if isBadVersion(M):
-            R = M
-        else:
+    while L <= R:
+        M = (L + R) // 2
+        r = M * M
+        if n == (r):
+            return True
+        elif n > (r):
             L = M + 1
+        else:
+            R = M - 1
+    return False
 
-    return L
-
-
-print(firstBadVersion(4))
-
+print(isPerfectSquare(16))
