@@ -5,7 +5,6 @@ This repository contains implementations of various data structures and algorith
 ## Algorithms Implemented
 
 ### Arrays & Strings
-- **Binary Search**: Searches for a target value in a sorted array (LeetCode 704).
 - **Closest to Zero**: Finds the number closest to zero in an array, preferring positive if both exist (LeetCode 2239).
 - **Merge Alternately**: Merges two strings alternately (LeetCode 1768).
 - **Roman to Integer**: Converts Roman numerals to integers (LeetCode 13).
@@ -40,6 +39,10 @@ This repository contains implementations of various data structures and algorith
 
 ### Linked Lists
 - **Remove Duplicates from Sorted List**: Removes duplicates from a sorted linked list (LeetCode 83).
+
+### Binary Search
+- **Binary Search**: Searches for a target value in a sorted array (LeetCode 704).
+- **Search Insert Position**: Finds the index where a target value should be inserted in a sorted array (LeetCode 35).
 
 ## How to Run
 

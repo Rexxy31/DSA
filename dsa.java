@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -36,7 +35,8 @@ public class dsa {
         // int[][] mX2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         // String vP = "([)";
         // int[] dT = {73,74,75,71,69,72,76,73};
-        int[] dD = {1, 1, 2, 3, 3};
+        // int[] dD = {1, 1, 2, 3, 3};
+        int[] sI = {1,3,5,6};
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -63,7 +63,8 @@ public class dsa {
         // System.out.println(calPoints(baseball));
         // System.out.println(validParenthese(vP));
         // System.out.println(Arrays.toString(dailyTemperatures(dT)));
-        System.out.println(deleteDuplicates(dD));
+        // System.out.println(deleteDuplicates(dD));
+        System.out.println(searchInsert(sI, 2));
 
 
     }
@@ -669,4 +670,23 @@ public class dsa {
         }
         return head;
     }
+
+    private static int searchInsert(int[] nums, int target) {
+        int L = 0;
+        int R = nums.length - 1;
+        
+
+        while (L <= R) {
+            int mid = L + (R - L ) / 2;
+            if (target == nums[mid]) {
+                return mid;
+            } else if (target > nums[mid]) {
+                L = mid + 1;
+            } else {
+                R = mid - 1;
+            }
+        }
+        return L;
+    }
+    
 }

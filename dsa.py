@@ -542,13 +542,34 @@ class ListNode:
         self.next = next
 
 
-def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
-    cur = head
+# def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#     cur = head
 
-    while cur and cur.next:
-        if cur.val == cur.next.val:
-            cur.next = cur.next.next
-        else:
-            cur = cur.next
+#     while cur and cur.next:
+#         if cur.val == cur.next.val:
+#             cur.next = cur.next.next
+#         else:
+#             cur = cur.next
     
-    return head
+#     return head
+
+
+def searchInsert(nums, target):
+    L, R = 0, len(nums) - 1
+
+    while L <= R:
+        mid = L + (R - L) // 2
+        if target == nums[mid]:
+            return mid
+        elif target > nums[mid]:
+            L = mid + 1
+        else:
+            R = mid - 1
+        
+    if nums[mid] < target:
+        return mid + 1
+    else:
+        return mid
+
+sI = [1,3,5,6]
+print(searchInsert(sI, 0))
