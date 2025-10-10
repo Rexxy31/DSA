@@ -43,6 +43,7 @@ This repository contains implementations of various data structures and algorith
 ### Binary Search
 - **Binary Search**: Searches for a target value in a sorted array (LeetCode 704).
 - **Search Insert Position**: Finds the index where a target value should be inserted in a sorted array (LeetCode 35).
+- **First Bad Version**: Finds the first bad version in a sequence using binary search (LeetCode 278).
 
 ## How to Run
 

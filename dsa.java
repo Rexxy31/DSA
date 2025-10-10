@@ -36,7 +36,8 @@ public class dsa {
         // String vP = "([)";
         // int[] dT = {73,74,75,71,69,72,76,73};
         // int[] dD = {1, 1, 2, 3, 3};
-        int[] sI = {1,3,5,6};
+        // int[] sI = {1,3,5,6};
+        int fBV = 5;
         // System.out.println(binarySearch(A, 6));
         // System.out.println(closestToZero(B));
         // System.out.println(mergeAlternately("abc", "pqrst"));
@@ -64,7 +65,8 @@ public class dsa {
         // System.out.println(validParenthese(vP));
         // System.out.println(Arrays.toString(dailyTemperatures(dT)));
         // System.out.println(deleteDuplicates(dD));
-        System.out.println(searchInsert(sI, 2));
+        // System.out.println(searchInsert(sI, 2));
+        System.out.println(firstBadVersion(fBV));
 
 
     }
@@ -687,6 +689,30 @@ public class dsa {
             }
         }
         return L;
+    }
+
+
+
+    private static int firstBadVersion(int n) {
+        int L = 1;
+        int R = n;
+
+        while (L < R) {
+            int M = L + (R - L) / 2;
+            if (isBadVersion(M)) {
+                R = M;
+            } else {
+                L = M + 1;
+            }
+        }
+        return L;
+    }
+
+    // Dummy implementation for isBadVersion. Replace with actual logic as needed.
+    private static boolean isBadVersion(int version) {
+        // Example: suppose version 4 and onwards are bad
+        int firstBad = 4;
+        return version >= firstBad;
     }
     
 }

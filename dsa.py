@@ -554,22 +554,46 @@ class ListNode:
 #     return head
 
 
-def searchInsert(nums, target):
-    L, R = 0, len(nums) - 1
+# def searchInsert(nums, target):
+#     L, R = 0, len(nums) - 1
 
-    while L <= R:
-        mid = L + (R - L) // 2
-        if target == nums[mid]:
-            return mid
-        elif target > nums[mid]:
-            L = mid + 1
-        else:
-            R = mid - 1
+#     while L <= R:
+#         mid = L + (R - L) // 2
+#         if target == nums[mid]:
+#             return mid
+#         elif target > nums[mid]:
+#             L = mid + 1
+#         else:
+#             R = mid - 1
         
-    if nums[mid] < target:
-        return mid + 1
-    else:
-        return mid
+#     if nums[mid] < target:
+#         return mid + 1
+#     else:
+#         return mid
 
-sI = [1,3,5,6]
-print(searchInsert(sI, 0))
+# sI = [1,3,5,6]
+# print(searchInsert(sI, 0))
+
+
+# Example implementation of isBadVersion for testing purposes
+def isBadVersion(version):
+    # Replace 4 with the first bad version for your test case
+    first_bad = 5
+    return version >= first_bad
+
+def firstBadVersion(n):
+    L = 1
+    R = n
+
+    while L < R:
+        M = L + (R - L) // 2
+        if isBadVersion(M):
+            R = M
+        else:
+            L = M + 1
+
+    return L
+
+
+print(firstBadVersion(4))
+
