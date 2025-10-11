@@ -598,22 +598,36 @@ class ListNode:
 # print(firstBadVersion(4))
 
 
-def isPerfectSquare(n):
-    if n == 1:
-        return True
+# def isPerfectSquare(n):
+#     if n == 1:
+#         return True
     
-    L = 1
-    R = n - 1
+#     L = 1
+#     R = n - 1
 
-    while L <= R:
-        M = (L + R) // 2
-        r = M * M
-        if n == (r):
-            return True
-        elif n > (r):
-            L = M + 1
-        else:
-            R = M - 1
-    return False
+#     while L <= R:
+#         M = (L + R) // 2
+#         r = M * M
+#         if n == (r):
+#             return True
+#         elif n > (r):
+#             L = M + 1
+#         else:
+#             R = M - 1
+#     return False
 
-print(isPerfectSquare(16))
+# print(isPerfectSquare(16))
+
+
+def reverseList(head):
+    cur = head
+    prev = None
+
+
+    while cur:
+        temp = cur.next
+        cur.next = prev
+        prev = cur
+        cur = temp
+
+    return prev
