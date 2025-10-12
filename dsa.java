@@ -752,5 +752,30 @@ public class dsa {
 
          return prev;
     }
+
+    private static ListNode mergerTwoLists(ListNode list1, ListNode list2) {
+        ListNode d = new ListNode(0);
+        ListNode cur = d;
+
+        while (list1 != null && list2 != null ) {
+            if (list1.val < list2.val) {
+                cur.next = list1;
+                cur = list1;
+                list1 = list1.next;
+            } else {
+                cur.next = list2;
+                cur = list2;
+                list2 = list2.next;
+            }
+        }
+
+        if (list1 == null) {
+            cur.next = list2;
+        } else {
+            cur.next = list1;
+        }
+
+        return d.next;
+    }
     
 }
