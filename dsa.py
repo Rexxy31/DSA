@@ -650,3 +650,16 @@ def mergeTwoLists(list1, list2):
     cur.next = list1 if list1 else list2
 
     return d.next
+
+
+def hasCycle(self, head: Optional[ListNode]) -> bool:
+    slow = fast = head
+
+    while fast and fast.next:
+        fast = fast.next.next
+        slow = slow.next
+
+        if fast == slow:
+            return True
+    
+    return False

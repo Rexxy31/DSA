@@ -41,6 +41,7 @@ This repository contains implementations of various data structures and algorith
 - **Remove Duplicates from Sorted List**: Removes duplicates from a sorted linked list (LeetCode 83).
 - **Reverse Linked List**: Reverses a singly linked list (LeetCode 206).
 - **Merge Two Sorted Lists**: Merges two sorted linked lists into one sorted list (LeetCode 21).
+- **Linked List Cycle**: Determines if a linked list has a cycle (LeetCode 141).
 
 ### Binary Search
 - **Binary Search**: Searches for a target value in a sorted array (LeetCode 704).
