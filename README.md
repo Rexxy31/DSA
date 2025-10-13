@@ -42,6 +42,7 @@ This repository contains implementations of various data structures and algorith
 - **Reverse Linked List**: Reverses a singly linked list (LeetCode 206).
 - **Merge Two Sorted Lists**: Merges two sorted linked lists into one sorted list (LeetCode 21).
 - **Linked List Cycle**: Determines if a linked list has a cycle (LeetCode 141).
+- **Middle of the Linked List**: Finds the middle node of a linked list (LeetCode 876).
 
 ### Binary Search
 - **Binary Search**: Searches for a target value in a sorted array (LeetCode 704).

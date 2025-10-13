@@ -663,3 +663,13 @@ def hasCycle(self, head: Optional[ListNode]) -> bool:
             return True
     
     return False
+
+
+def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    slow = fast = head
+
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next
+
+    return slow
