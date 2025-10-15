@@ -50,15 +50,9 @@ This repository contains implementations of various data structures and algorith
 - **First Bad Version**: Finds the first bad version in a sequence using binary search (LeetCode 278).
 - **Is Perfect Square**: Checks if a number is a perfect square using binary search (LeetCode 367).
 
-### Linked Lists
-- **Remove Duplicates from Sorted List**: Removes duplicates from a sorted linked list (LeetCode 83).
-- **Reverse Linked List**: Reverses a singly linked list (LeetCode 206).
-- **Merge Two Sorted Lists**: Merges two sorted linked lists into one sorted list (LeetCode 21).
-- **Linked List Cycle**: Determines if a linked list has a cycle (LeetCode 141).
-- **Middle of the Linked List**: Finds the middle node of a linked list (LeetCode 876).
-
 ### Binary Trees
 - **Invert Binary Tree**: Inverts a binary tree (LeetCode 226).
+- **Maximum Depth of Binary Tree**: Calculates the maximum depth of a binary tree (LeetCode 104).
 
 ## How to Run
 

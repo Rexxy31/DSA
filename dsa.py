@@ -691,3 +691,13 @@ def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
     self.invertTree(root.right)
 
     return root
+
+
+def maxDepth(self, root: Optional[TreeNode]) -> int:
+    if not root:
+        return 0
+    
+    left = self.maxDepth(root.left)
+    right = self.maxDepth(root.right)
+
+    return 1 + max(left, right)
