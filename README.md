@@ -53,6 +53,7 @@ This repository contains implementations of various data structures and algorith
 ### Binary Trees
 - **Invert Binary Tree**: Inverts a binary tree (LeetCode 226).
 - **Maximum Depth of Binary Tree**: Calculates the maximum depth of a binary tree (LeetCode 104).
+- **Is Balanced Binary Tree**: Checks if a binary tree is balanced (LeetCode 110).
 
 ## How to Run
 
