@@ -858,4 +858,23 @@ public class dsa {
         }
         return 1 + Math.max(left_height, right_height);
     }
+
+    private static int largestDiameter = 0;
+
+    public static int diameterOfBinaryTree(TreeNode root) {
+        height(root);
+        return largestDiameter;
+    }
+
+    private static int height(TreeNode node) {
+        if (node == null) return 0;
+
+        int left_height = height(node.left);
+        int right_height = height(node.left);
+        int diameter = left_height + right_height;
+
+        largestDiameter = Math.max(largestDiameter, diameter);
+
+        return 1 + Math.max(left_height, right_height);
+    }
 }
