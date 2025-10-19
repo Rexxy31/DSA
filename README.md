@@ -56,6 +56,7 @@ This repository contains implementations of various data structures and algorith
 - **Is Balanced Binary Tree**: Checks if a binary tree is balanced (LeetCode 110).
 - **Diameter of Binary Tree**: Calculates the diameter of a binary tree (LeetCode 543).
 - **Is Same Tree**: Checks if two binary trees are identical (LeetCode 100).
+- **Is Symmetric Tree**: Checks if a binary tree is symmetric (LeetCode 101).
 
 ## How to Run
 

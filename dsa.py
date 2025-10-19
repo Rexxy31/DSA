@@ -755,3 +755,19 @@ def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         return False
     
     return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+
+
+def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        def same(root1, root2):
+            if not root1 and not root2:
+                return True
+        
+            if not root1 or not root2:
+                return False
+            
+            if root1.val != root2.val:
+                return False
+            
+            return same(root1.left, root2.right) and same(root1.right, root2.left)
+        
+        return same(root, root)
