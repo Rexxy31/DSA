@@ -898,6 +898,20 @@ public class dsa {
             if (root1.val != root2.val) return false;
 
             return same(root1.left, root2.right) && same(root1.right, root2.left);
-        }
+    }
+
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        return hasSum(root, 0, targetSum);
+    }
+
+    private boolean hasSum(TreeNode root, int curSum, int targetSum) {
+        if (root == null) return false;
+
+        curSum += root.val;
+
+        if (root.left == null && root.right == null) return curSum == targetSum;
+
+        return hasSum(root.left, curSum, targetSum) || hasSum(root.right, curSum, targetSum);
+
     }
 }

@@ -771,3 +771,20 @@ def isSymmetric(self, root: Optional[TreeNode]) -> bool:
             return same(root1.left, root2.right) and same(root1.right, root2.left)
         
         return same(root, root)
+
+
+
+def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+    
+    def hasSum(root, cur_sum):
+        if not root:
+            return False
+        
+        cur_sum += root.val
+
+        if not root.left and not root.right:
+            return cur_sum == targetSum
+        
+        return hasSum(root.left, cur_sum) or hasSum(root.right, cur_sum) 
+        
+    return hasSum(root, 0)
