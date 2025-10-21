@@ -788,3 +788,23 @@ def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         return hasSum(root.left, cur_sum) or hasSum(root.right, cur_sum) 
         
     return hasSum(root, 0)
+
+
+def fibonacci(self, n):
+    # if n == 0:
+    #     return 0
+    # elif n == 1:
+    #     return 1
+    
+    # return self.fibonacci(n-1) + self.fibonacci(n-2)
+
+    memo = {0:0, 1:1}
+
+    def f(x):
+        if x in memo:
+            return memo[x]
+        else:
+            memo[x] = f(x-1) + f(x-2)
+            return memo[x]
+        
+    return f(n)

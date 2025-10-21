@@ -59,6 +59,9 @@ This repository contains implementations of various data structures and algorith
 - **Is Symmetric Tree**: Checks if a binary tree is symmetric (LeetCode 101).
 - **Has Path Sum**: Checks if there is a root-to-leaf path with a given sum (LeetCode 112).
 
+## Dynamic Programming
+- **Fibonacci**: Computes the nth Fibonacci number. (LeetCode 509).
+
 ## How to Run
 
 ### Java
