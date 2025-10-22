@@ -61,6 +61,7 @@ This repository contains implementations of various data structures and algorith
 
 ## Dynamic Programming
 - **Fibonacci**: Computes the nth Fibonacci number. (LeetCode 509).
+- **Climbing Stairs**: Computes the number of ways to climb n stairs (LeetCode 70).
 
 ## How to Run
 

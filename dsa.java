@@ -934,4 +934,21 @@ public class dsa {
             return result;
         }
     }
+
+    private int climbStairs(int n) {
+        if (n == 1) {
+            return 1;
+        } else if (n == 2) {
+            return 2;
+        } else {
+
+            if (memo.containsKey(n)) {
+                return memo.get(n);
+            }
+
+            int result = climbStairs(n - 2) + climbStairs(n - 1);
+            memo.put(n, result);
+            return result;
+        }
+    }
 }
