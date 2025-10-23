@@ -634,189 +634,203 @@ class ListNode:
 #     return prev
 
 
-def mergeTwoLists(list1, list2):
-    d = ListNode()
-    cur = d
+# def mergeTwoLists(list1, list2):
+#     d = ListNode()
+#     cur = d
 
-    while list1 and list2:
-        if list1.val < list2.val:
-            cur.next = list1
-            cur = list1
-            list1 = list1.next
-        else:
-            cur.next = list2
-            cur = list2
-            list2 = list2.next
+#     while list1 and list2:
+#         if list1.val < list2.val:
+#             cur.next = list1
+#             cur = list1
+#             list1 = list1.next
+#         else:
+#             cur.next = list2
+#             cur = list2
+#             list2 = list2.next
 
-    cur.next = list1 if list1 else list2
+#     cur.next = list1 if list1 else list2
 
-    return d.next
+#     return d.next
 
 
-def hasCycle(self, head: Optional[ListNode]) -> bool:
-    slow = fast = head
+# def hasCycle(self, head: Optional[ListNode]) -> bool:
+#     slow = fast = head
 
-    while fast and fast.next:
-        fast = fast.next.next
-        slow = slow.next
+#     while fast and fast.next:
+#         fast = fast.next.next
+#         slow = slow.next
 
-        if fast == slow:
-            return True
+#         if fast == slow:
+#             return True
     
-    return False
+#     return False
 
 
-def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-    slow = fast = head
+# def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#     slow = fast = head
 
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next
+#     while fast and fast.next:
+#         slow = slow.next
+#         fast = fast.next
 
-    return slow
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-    if not root:
-        return None
-
-    root.left, root.right = root.right, root.left
-
-    self.invertTree(root.left)
-    self.invertTree(root.right)
-
-    return root
+#     return slow
 
 
-def maxDepth(self, root: Optional[TreeNode]) -> int:
-    if not root:
-        return 0
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+# def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+#     if not root:
+#         return None
+
+#     root.left, root.right = root.right, root.left
+
+#     self.invertTree(root.left)
+#     self.invertTree(root.right)
+
+#     return root
+
+
+# def maxDepth(self, root: Optional[TreeNode]) -> int:
+#     if not root:
+#         return 0
     
-    left = self.maxDepth(root.left)
-    right = self.maxDepth(root.right)
+#     left = self.maxDepth(root.left)
+#     right = self.maxDepth(root.right)
 
-    return 1 + max(left, right)
+#     return 1 + max(left, right)
 
-def isBalanced(self, root: Optional[TreeNode]) -> bool:
-    balanced = [True]
+# def isBalanced(self, root: Optional[TreeNode]) -> bool:
+#     balanced = [True]
 
-    def height(root):
-        if not root:
-            return [0]
+#     def height(root):
+#         if not root:
+#             return [0]
         
-        left_height = height(root.left)
-        if balanced[0] is False:
-            return 0
+#         left_height = height(root.left)
+#         if balanced[0] is False:
+#             return 0
         
-        right_height = height(root.right)
-        if abs(left_height - right_height) > 1:
-            balanced[0] = False
-            return 0
+#         right_height = height(root.right)
+#         if abs(left_height - right_height) > 1:
+#             balanced[0] = False
+#             return 0
         
-        return 1 + max(left_height, right_height)
+#         return 1 + max(left_height, right_height)
     
-    height(root)
-    return balanced[0]
+#     height(root)
+#     return balanced[0]
 
 
-def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-    largest_diameter = [0]
+# def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+#     largest_diameter = [0]
 
-    def height(root):
-        if root is None:
-            return 0
+#     def height(root):
+#         if root is None:
+#             return 0
         
-        left_height = height(root.left)
-        right_height = height(root.right)
-        diameter = left_height + right_height
+#         left_height = height(root.left)
+#         right_height = height(root.right)
+#         diameter = left_height + right_height
 
-        largest_diameter[0] = max(largest_diameter[0], diameter)
+#         largest_diameter[0] = max(largest_diameter[0], diameter)
 
-        return 1 + max(left_height, right_height)
+#         return 1 + max(left_height, right_height)
     
-    height(root)
-    return largest_diameter[0]
+#     height(root)
+#     return largest_diameter[0]
 
-def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+# def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
 
-    if not p and not q:
-        return True
+#     if not p and not q:
+#         return True
 
-    if (p and not q) or (not p and q):
-        return False
+#     if (p and not q) or (not p and q):
+#         return False
 
-    if p.val != q.val:
-        return False
+#     if p.val != q.val:
+#         return False
     
-    return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+#     return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 
-def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        def same(root1, root2):
-            if not root1 and not root2:
-                return True
+# def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+#         def same(root1, root2):
+#             if not root1 and not root2:
+#                 return True
         
-            if not root1 or not root2:
-                return False
+#             if not root1 or not root2:
+#                 return False
             
-            if root1.val != root2.val:
-                return False
+#             if root1.val != root2.val:
+#                 return False
             
-            return same(root1.left, root2.right) and same(root1.right, root2.left)
+#             return same(root1.left, root2.right) and same(root1.right, root2.left)
         
-        return same(root, root)
+#         return same(root, root)
 
 
 
-def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+# def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
     
-    def hasSum(root, cur_sum):
-        if not root:
-            return False
+#     def hasSum(root, cur_sum):
+#         if not root:
+#             return False
         
-        cur_sum += root.val
+#         cur_sum += root.val
 
-        if not root.left and not root.right:
-            return cur_sum == targetSum
+#         if not root.left and not root.right:
+#             return cur_sum == targetSum
         
-        return hasSum(root.left, cur_sum) or hasSum(root.right, cur_sum) 
+#         return hasSum(root.left, cur_sum) or hasSum(root.right, cur_sum) 
         
-    return hasSum(root, 0)
+#     return hasSum(root, 0)
 
 
-def fibonacci(self, n):
-    # if n == 0:
-    #     return 0
-    # elif n == 1:
-    #     return 1
+# def fibonacci(self, n):
+#     # if n == 0:
+#     #     return 0
+#     # elif n == 1:
+#     #     return 1
     
-    # return self.fibonacci(n-1) + self.fibonacci(n-2)
+#     # return self.fibonacci(n-1) + self.fibonacci(n-2)
 
-    memo = {0:0, 1:1}
+#     memo = {0:0, 1:1}
 
-    def f(x):
-        if x in memo:
-            return memo[x]
-        else:
-            memo[x] = f(x-1) + f(x-2)
-            return memo[x]
+#     def f(x):
+#         if x in memo:
+#             return memo[x]
+#         else:
+#             memo[x] = f(x-1) + f(x-2)
+#             return memo[x]
         
-    return f(n)
+#     return f(n)
 
-def climbStairs(self, n: int) -> int:
-        memo = {1:1, 2:2}
+# def climbStairs(self, n: int) -> int:
+#         memo = {1:1, 2:2}
 
-        def f(x):
-            if x in memo:
-                return memo[x]
-            else:
-                memo[x] = f(x-2) + f(x-1)
-                return memo[x]
+#         def f(x):
+#             if x in memo:
+#                 return memo[x]
+#             else:
+#                 memo[x] = f(x-2) + f(x-1)
+#                 return memo[x]
         
-        return f(n)
+#         return f(n)
+
+
+def minCostClimbingStairs(cost):
+    n = len(cost)
+    prev, curr = 0, 0
+
+
+    for i in range(2, n + 1):
+        prev, curr = curr , min(cost[i - 2] + prev, cost[i - 1] + curr)
+
+    return curr
+
+cost = [1,100,1,1,1,100,1,1,100,1]
+print(minCostClimbingStairs(cost))
