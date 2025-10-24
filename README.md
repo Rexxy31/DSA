@@ -49,6 +49,7 @@ This repository contains implementations of various data structures and algorith
 - **Search Insert Position**: Finds the index where a target value should be inserted in a sorted array (LeetCode 35).
 - **First Bad Version**: Finds the first bad version in a sequence using binary search (LeetCode 278).
 - **Is Perfect Square**: Checks if a number is a perfect square using binary search (LeetCode 367).
+- **Search a 2D Matrix**: Searches for a target value in a 2D matrix using binary search (LeetCode 74).
 
 ### Binary Trees
 - **Invert Binary Tree**: Inverts a binary tree (LeetCode 226).

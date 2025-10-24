@@ -822,15 +822,41 @@ class ListNode:
 #         return f(n)
 
 
-def minCostClimbingStairs(cost):
-    n = len(cost)
-    prev, curr = 0, 0
+# def minCostClimbingStairs(cost):
+#     n = len(cost)
+#     prev, curr = 0, 0
 
 
-    for i in range(2, n + 1):
-        prev, curr = curr , min(cost[i - 2] + prev, cost[i - 1] + curr)
+#     for i in range(2, n + 1):
+#         prev, curr = curr , min(cost[i - 2] + prev, cost[i - 1] + curr)
 
-    return curr
+#     return curr
 
-cost = [1,100,1,1,1,100,1,1,100,1]
-print(minCostClimbingStairs(cost))
+# cost = [1,100,1,1,1,100,1,1,100,1]
+# print(minCostClimbingStairs(cost))
+
+def searchMatrix(matrix, target):
+    m = len(matrix)
+    n = len(matrix[0])
+    t = m * n
+    l = 0
+    r = t - 1
+
+
+    while l <= r:
+        M = (l + r) // 2
+        i = M // n
+        j = M % n
+        mid_num = matrix[i][j]
+
+        if mid_num == target:
+            return True
+        elif target < mid_num:
+            r = m - 1
+        else:
+            l = m + 1
+    return False
+
+matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]] 
+target = 13
+print(searchMatrix(matrix, target))
