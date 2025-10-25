@@ -51,6 +51,7 @@ This repository contains implementations of various data structures and algorith
 - **Is Perfect Square**: Checks if a number is a perfect square using binary search (LeetCode 367).
 - **Search a 2D Matrix**: Searches for a target value in a 2D matrix using binary search (LeetCode 74).
 - **Find Minimum in Rotated Sorted Array**: Finds the minimum element in a rotated sorted array (LeetCode 153).
+- **Search in Rotated Sorted Array**: Searches for a target value in a rotated sorted array (LeetCode 33).
 
 ### Binary Trees
 - **Invert Binary Tree**: Inverts a binary tree (LeetCode 226).
