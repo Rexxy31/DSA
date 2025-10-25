@@ -860,3 +860,18 @@ def searchMatrix(matrix, target):
 matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]] 
 target = 13
 print(searchMatrix(matrix, target))
+
+def findMin(nums):
+        n = len(nums)
+        l = 0
+        r = n - 1
+
+        while l < r:
+            mid = (l + r) // 2
+
+            if nums[mid] > nums[r]:
+                l = mid + 1
+            else:
+                r = mid
+
+        return nums[l]
