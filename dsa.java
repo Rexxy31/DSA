@@ -1021,4 +1021,26 @@ public class dsa {
 
         return -1;
     }
+
+    private int maxArea(int[] height) {
+        int n = height.length;
+        int l = 0;
+        int r = n - 1;
+        int max_area = 0;
+
+        while (l < r) {
+            int w = r - l;
+            int h = Math.min(height[l], height[r]);
+            int a = w * h;
+            max_area = Math.max(max_area, a);
+
+            if (height[l] < height[r]) {
+                l += 1;
+            } else {
+                r -= 1;
+            }
+        }
+
+        return max_area;
+    }
 }
