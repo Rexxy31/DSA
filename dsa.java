@@ -840,18 +840,18 @@ public class dsa {
     }
 
     private static boolean isBalanced(TreeNode root) {
-        return height(root) != -1;
+        return heightBalanced(root) != -1;
     }
 
-    private static int height(TreeNode root) {
+    private static int heightBalanced(TreeNode root) {
         if (root == null) {
             return 0;
         }
 
-        int left_height = height(root.left);
+        int left_height = heightBalanced(root.left);
         if (left_height == -1) return -1;
 
-        int right_height = height(root.right);
+        int right_height = heightBalanced(root.right);
         if (right_height == -1) return -1;
 
         if (Math.abs(left_height - right_height) > 1) {
@@ -863,15 +863,15 @@ public class dsa {
     private static int largestDiameter = 0;
 
     public static int diameterOfBinaryTree(TreeNode root) {
-        height(root);
+        heightDiameter(root);
         return largestDiameter;
     }
 
-    private static int height(TreeNode node) {
+    private static int heightDiameter(TreeNode node) {
         if (node == null) return 0;
 
-        int left_height = height(node.left);
-        int right_height = height(node.left);
+        int left_height = heightDiameter(node.left);
+        int right_height = heightDiameter(node.right);
         int diameter = left_height + right_height;
 
         largestDiameter = Math.max(largestDiameter, diameter);
@@ -1042,5 +1042,30 @@ public class dsa {
         }
 
         return max_area;
+    }
+
+    public int trap(int[] height) {
+        if (height == null) {
+            return 0;
+        }
+
+        int l = 0;
+        int r = height.length - 1;
+        int leftMax = height[l];
+        int rightMax = height[r];
+        int summ = 0;
+
+        while (l < r) {
+            if (leftMax < rightMax) {
+                l += 1;
+                leftMax = Math.max(leftMax, height[l]);
+                summ += leftMax - height[l];
+            } else {
+                r -= 1;
+                rightMax = Math.max(rightMax, height[r]);
+                summ += rightMax - height[r];
+            }
+        }
+        return summ;
     }
 }

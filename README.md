@@ -32,6 +32,7 @@ This repository contains implementations of various data structures and algorith
 - **Valid Palindrome**: Checks if a string is a palindrome, ignoring case and non-alphanumeric characters (LeetCode 125).
 - **Two Sum II - Input Array Is Sorted**: Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number (LeetCode 167).
 - **Container With Most Water**: Finds the maximum area of water that can be contained between two lines (LeetCode 11).
+- **Trapping Rain Water**: Computes the amount of trapped rainwater (LeetCode 42).
 
 ### Stacks
 - **Baseball Game**: Calculates the total score of a baseball game with operations (LeetCode 682).
