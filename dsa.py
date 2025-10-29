@@ -250,6 +250,7 @@
 # print(containsDuplicate(G))
 
 from collections import Counter, defaultdict
+from math import ceil, floor
 from typing import Optional
 
 # def canConstruct(ransomNote, magazine):
@@ -935,3 +936,25 @@ def trap(height):
             summ += rightMax - height[r]
 
     return summ
+
+def evalRPN(token):
+    stk = []
+    for t in token:
+        if t in "+-*/":
+            b, a = stk.pop(), stk.pop()
+
+            if t == "+":
+                stk.append(a + b)
+            elif t == "-":
+                stk.append(a - b)
+            elif t == "*":
+                stk.append(a * b)
+            else:
+                division = a / b
+                if division < 0:
+                    stk.append(ceil(division))
+                else:
+                    stk.append(floor(division))
+        else:
+            stk.append(int(t))
+    return stk[0]

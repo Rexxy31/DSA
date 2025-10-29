@@ -38,6 +38,7 @@ This repository contains implementations of various data structures and algorith
 - **Baseball Game**: Calculates the total score of a baseball game with operations (LeetCode 682).
 - **Valid Parentheses**: Checks if a string of parentheses is valid (LeetCode 20).
 - **Daily Temperatures**: Returns an array indicating days until warmer temperature (LeetCode 739).
+- **Evaluate Reverse Polish Notation**: Evaluates the value of an arithmetic expression in Reverse Polish Notation (LeetCode 150).
 
 ### Linked Lists
 - **Remove Duplicates from Sorted List**: Removes duplicates from a sorted linked list (LeetCode 83).
