@@ -1068,4 +1068,24 @@ public class dsa {
         }
         return summ;
     }
+
+    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        return hasSubTree(root, subRoot);
+    }
+
+    private boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q == null) return true;
+        if (p == null || q == null) return false;
+        if (p.val != q.val) return false;
+
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+
+    private boolean hasSubTree(TreeNode root, TreeNode subRoot) {
+        if (root == null) return false;
+
+        if (isSameTree(root, subRoot)) return true;
+
+        return hasSubTree(root.left, subRoot) || hasSubTree(root.right, subRoot);
+    }
 }
