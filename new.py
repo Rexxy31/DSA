@@ -133,14 +133,55 @@
 # nums = [2, 2]
 # print(findErrorNums(nums))
 
-def smallerNumbersThanCurrent(nums):
-    n = len(nums)
-    s = []
-    T = []
-    for num in nums:
-        s.append(num)
-    
-    return s
+# def smallerNumbersThanCurrent(nums):
+#     n = len(nums)
+#     T = []
+#     a, b = 0, 0
+#     count = 0
 
-nums = [8,1,2,2,3]
-print(smallerNumbersThanCurrent(nums))
+#     while a <= n - 1:
+#         while b <= n - 1:
+#             if nums[a] > nums[b]:
+#                 count += 1
+#                 b += 1
+#             else:
+#                 b += 1
+                
+#         T.append(count)
+#         a += 1
+#         b = 0
+#         count = 0
+#     return T
+
+
+
+# nums = [8,1,2,2,3]
+
+
+# def smallerNumbersThanCurrent(nums):
+#     sorted_nums = sorted(nums)
+
+#     rank = {}
+
+#     for i, val in enumerate(sorted_nums):
+#         if val not in rank:
+#             rank[val] = i
+
+#     return [rank[val] for val in nums]
+
+# print(smallerNumbersThanCurrent(nums))
+
+# def findDisappearedNumbers(nums):
+#     N = len(nums)
+#     S = set(nums)
+#     T = []
+
+#     for n in range(1, N + 1):
+#         if n not in S:
+#             T.append(n)
+    
+#     return T
+
+# nums = [4,3,2,7,8,2,3,1]
+# print(findDisappearedNumbers(nums))
+    
