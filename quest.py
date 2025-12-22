@@ -184,4 +184,24 @@
 
 # nums = [4,3,2,7,8,2,3,1]
 # print(findDisappearedNumbers(nums))
+
+def buildArray(target, n):
+        T = []
+        i = 0
+
+        for s in range(1, n + 1):
+            if i == len(target):
+                break
+            
+            T.append("Push")
+            if s == target[i]:
+                i += 1
+            else:
+                T.append("Pop")
+        
+        return T
+
+target = [1,3]
+n = 4
+print(buildArray(target, n))
     
