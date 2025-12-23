@@ -185,23 +185,51 @@
 # nums = [4,3,2,7,8,2,3,1]
 # print(findDisappearedNumbers(nums))
 
-def buildArray(target, n):
-        T = []
-        i = 0
+# def buildArray(target, n):
+#         T = []
+#         i = 0
 
-        for s in range(1, n + 1):
-            if i == len(target):
-                break
+#         for s in range(1, n + 1):
+#             if i == len(target):
+#                 break
             
-            T.append("Push")
-            if s == target[i]:
-                i += 1
-            else:
-                T.append("Pop")
+#             T.append("Push")
+#             if s == target[i]:
+#                 i += 1
+#             else:
+#                 T.append("Pop")
         
-        return T
+#         return T
 
-target = [1,3]
-n = 4
-print(buildArray(target, n))
-    
+# target = [1,3]
+# n = 4
+# print(buildArray(target, n))
+
+def evalRPN(tokens):
+    stack = []
+    op = {'+', '-', '/', '*'}
+
+    for t in tokens:
+        if t not in op:
+            stack.append(int(t))
+        else:
+            b = stack.pop()
+            a = stack.pop()
+
+            if t == '+':
+                res = a + b
+            elif t == '-':
+                res = a - b
+            elif t == '*':
+                res = a * b
+            else:
+                res = int(a / b)
+
+            stack.append(res)
+
+    return stack[-1]
+
+tokens = ["2","1","+","3","*"]
+print(evalRPN(tokens))
+
+            
