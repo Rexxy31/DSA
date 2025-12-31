@@ -205,31 +205,76 @@
 # n = 4
 # print(buildArray(target, n))
 
-def evalRPN(tokens):
-    stack = []
-    op = {'+', '-', '/', '*'}
+# def evalRPN(tokens):
+#     stack = []
+#     op = {'+', '-', '/', '*'}
 
-    for t in tokens:
-        if t not in op:
-            stack.append(int(t))
-        else:
-            b = stack.pop()
-            a = stack.pop()
+#     for t in tokens:
+#         if t not in op:
+#             stack.append(int(t))
+#         else:
+#             b = stack.pop()
+#             a = stack.pop()
 
-            if t == '+':
-                res = a + b
-            elif t == '-':
-                res = a - b
-            elif t == '*':
-                res = a * b
-            else:
-                res = int(a / b)
+#             if t == '+':
+#                 res = a + b
+#             elif t == '-':
+#                 res = a - b
+#             elif t == '*':
+#                 res = a * b
+#             else:
+#                 res = int(a / b)
 
-            stack.append(res)
+#             stack.append(res)
 
-    return stack[-1]
+#     return stack[-1]
 
-tokens = ["2","1","+","3","*"]
-print(evalRPN(tokens))
+# tokens = ["2","1","+","3","*"]
+# print(evalRPN(tokens))
 
+
+# def exclusiveTime(n, logs):
+#     L = len(logs)
+#     stack = []
+#     T = []
+#     i = 0
+
+#     for log in logs:
+#         parts = log.split(':')
+#         stack.append(parts)
+
+#     for i in range(L):
+#         T.append(int(stack[i][-3]))
+#         if i != int(stack[0][-1]):
+#             T.append(int(stack[0][-3]))
             
+
+    
+#     return stack[0][-1]
+
+# logs = ["0:start:0","1:start:2","1:end:5","0:end:6"]
+# n = 2
+
+# print(exclusiveTime(n, logs))
+
+
+
+def finalPrices(prices):
+    n = len(prices)
+    stack = []
+    result = []
+
+    for price in prices:
+        result.append(price)
+
+    for i in range(n):
+        while stack and prices[stack[-1]] >= prices[i]:
+            idx = stack.pop()
+            result[idx] = prices[idx] - prices[i]
+
+        stack.append(i)
+    
+    return result
+
+prices = [8,4,6,2,3]
+print(finalPrices(prices))
