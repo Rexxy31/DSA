@@ -259,22 +259,41 @@
 
 
 
-def finalPrices(prices):
-    n = len(prices)
-    stack = []
-    result = []
+# def finalPrices(prices):
+#     n = len(prices)
+#     stack = []
+#     result = []
 
-    for price in prices:
-        result.append(price)
+#     for price in prices:
+#         result.append(price)
 
-    for i in range(n):
-        while stack and prices[stack[-1]] >= prices[i]:
-            idx = stack.pop()
-            result[idx] = prices[idx] - prices[i]
+#     for i in range(n):
+#         while stack and prices[stack[-1]] >= prices[i]:
+#             idx = stack.pop()
+#             result[idx] = prices[idx] - prices[i]
 
-        stack.append(i)
+#         stack.append(i)
     
+#     return result
+
+# prices = [8,4,6,2,3]
+# print(finalPrices(prices))
+
+def dailyTemperatures(temperatures):
+    n = len(temperatures)
+    result = [0] * n
+    stack = []
+    
+    for i in range(n):
+        while stack and temperatures[i] > temperatures[stack[-1]]:
+            idx = stack.pop()
+            result[idx] = i - idx
+        
+        stack.append(i)
+
     return result
 
-prices = [8,4,6,2,3]
-print(finalPrices(prices))
+
+
+temperatures = [73,74,75,71,69,72,76,73]
+print(dailyTemperatures(temperatures))
