@@ -279,21 +279,48 @@
 # prices = [8,4,6,2,3]
 # print(finalPrices(prices))
 
-def dailyTemperatures(temperatures):
-    n = len(temperatures)
-    result = [0] * n
-    stack = []
-    
-    for i in range(n):
-        while stack and temperatures[i] > temperatures[stack[-1]]:
-            idx = stack.pop()
-            result[idx] = i - idx
+# def dailyTemperatures(temperatures):
+#     n = len(temperatures)
+#     result = [0] * n
+#     stack = []
+
+#     for i in range(n):
+#         while stack and temperatures[i] > temperatures[stack[-1]]:
+#             idx = stack.pop()
+#             result[idx] = i - idx
         
-        stack.append(i)
+#         stack.append(i)
 
-    return result
+#     return result
 
 
 
-temperatures = [73,74,75,71,69,72,76,73]
-print(dailyTemperatures(temperatures))
+# temperatures = [73,74,75,71,69,72,76,73]
+# print(dailyTemperatures(temperatures))
+
+def largestRectangleArea(heights):
+    n = len(heights)
+    stack = []
+    max_area = 0
+
+    for i, height in enumerate(heights):
+        start = i
+        while stack and stack[-1][0] > height:
+            h, j = stack.pop()
+            w = i - j
+            a = h * w
+            max_area = max(max_area, a)
+            start = j
+        stack.append((height, start))
+
+    while stack:
+        h, j = stack.pop()
+        w = n - j
+        a = h * w
+        max_area = max(max_area, a)
+
+    return max_area
+
+
+heights = [2,1,5,6,2,3]
+print(largestRectangleArea(heights))
