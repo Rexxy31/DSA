@@ -1,4 +1,4 @@
-
+from collections import deque
 
 # def closestToZero(arr):
 #     closest = arr[0]
@@ -298,29 +298,48 @@
 # temperatures = [73,74,75,71,69,72,76,73]
 # print(dailyTemperatures(temperatures))
 
-def largestRectangleArea(heights):
-    n = len(heights)
-    stack = []
-    max_area = 0
+# def largestRectangleArea(heights):
+#     n = len(heights)
+#     stack = []
+#     max_area = 0
 
-    for i, height in enumerate(heights):
-        start = i
-        while stack and stack[-1][0] > height:
-            h, j = stack.pop()
-            w = i - j
-            a = h * w
-            max_area = max(max_area, a)
-            start = j
-        stack.append((height, start))
+#     for i, height in enumerate(heights):
+#         start = i
+#         while stack and stack[-1][0] > height:
+#             h, j = stack.pop()
+#             w = i - j
+#             a = h * w
+#             max_area = max(max_area, a)
+#             start = j
+#         stack.append((height, start))
 
-    while stack:
-        h, j = stack.pop()
-        w = n - j
-        a = h * w
-        max_area = max(max_area, a)
+#     while stack:
+#         h, j = stack.pop()
+#         w = n - j
+#         a = h * w
+#         max_area = max(max_area, a)
 
-    return max_area
+#     return max_area
 
 
-heights = [2,1,5,6,2,3]
-print(largestRectangleArea(heights))
+# heights = [2,1,5,6,2,3]
+# print(largestRectangleArea(heights))
+
+def countStudents(students, sandwiches):
+    queue = deque(students)
+    sw = deque(sandwiches)
+    n = len(queue)
+    attempts = 0
+
+    while queue and attempts < n:
+        if queue[0] == sw[0]:
+            queue.popleft()
+            sw.popleft()
+            attempts = 0
+        else:
+            a = queue.popleft()
+            queue.append(a)
+            attempts += 1
+        
+    return len(queue)
+
