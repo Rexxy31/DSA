@@ -328,8 +328,8 @@ from collections import deque
 def countStudents(students, sandwiches):
     queue = deque(students)
     sw = deque(sandwiches)
-    n = len(queue)
     attempts = 0
+    n = len(queue)
 
     while queue and attempts < n:
         if queue[0] == sw[0]:
@@ -340,6 +340,12 @@ def countStudents(students, sandwiches):
             a = queue.popleft()
             queue.append(a)
             attempts += 1
-        
+
     return len(queue)
+
+students = [1,1,1,0,0,1] 
+sandwiches = [1,0,0,0,1,1]
+
+print(countStudents(students, sandwiches))
+
 
