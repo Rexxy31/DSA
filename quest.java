@@ -4,7 +4,10 @@ public class quest {
     public static void main(String[] args) {
         int[] students = {1,1,1,0,0,1};
         int[] sandwiches = {1,0,0,0,1,1};
-        System.out.println(countStudents(students, sandwiches));
+        int[] tickets = {2, 3, 2};
+        int k = 2;
+        // System.out.println(countStudents(students, sandwiches));
+        System.out.println(timeRequiredToBuy(tickets, k));
     }
 
     private static int countStudents(int[] students, int[] sandwiches) {
@@ -32,4 +35,18 @@ public class quest {
         return queue.size();
         
     }
+
+    private static int timeRequiredToBuy(int[] tickets, int k) {
+        int res = 0;
+
+        for (int i = 0; i < tickets.length; i++) {
+            if (i <= k) {
+                res += Math.min(tickets[i], tickets[k]);
+            } else {
+                res += Math.min(tickets[i], tickets[k] - 1);
+            }
+        }
+
+        return res;
+    } 
 }
