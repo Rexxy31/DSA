@@ -349,17 +349,41 @@ from collections import deque
 # print(countStudents(students, sandwiches))
 
 
-def timeRequiredToBuy(tickets, k):
-    res = 0
+# def timeRequiredToBuy(tickets, k):
+#     res = 0
 
-    for i in range(len(tickets)):
-        if i <= k:
-            res += min(tickets[i], tickets[k])
-        else:
-            res +=min(tickets[i], tickets[k] - 1)
+#     for i in range(len(tickets)):
+#         if i <= k:
+#             res += min(tickets[i], tickets[k])
+#         else:
+#             res +=min(tickets[i], tickets[k] - 1)
     
-    return res
+#     return res
 
-tickets = [5,1,1,1]
-k = 0
-print(timeRequiredToBuy(tickets, k))
+# tickets = [5,1,1,1]
+# k = 0
+# print(timeRequiredToBuy(tickets, k))
+
+class MyQueue:
+
+    def __init__(self):
+        self.s1 = []
+        self.s2 = []
+
+    def push(self, x: int) -> None:
+        self.s1.append(x)
+
+    def pop(self) -> int:
+        if not self.s2:
+            while self.s1:
+                self.s2.append(self.s1.pop())
+        return self.s2.pop()
+    def peek(self) -> int:
+        if not self.s2:
+            while self.s1:
+                self.s2.append(self.s1.pop())
+        return self.s2[-1]
+
+    def empty(self) -> bool:
+        return max(len(self.s1), len(self.s2)) == 0
+    
