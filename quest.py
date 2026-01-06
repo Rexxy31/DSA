@@ -325,27 +325,41 @@ from collections import deque
 # heights = [2,1,5,6,2,3]
 # print(largestRectangleArea(heights))
 
-def countStudents(students, sandwiches):
-    queue = deque(students)
-    sw = deque(sandwiches)
-    attempts = 0
-    n = len(queue)
+# def countStudents(students, sandwiches):
+#     queue = deque(students)
+#     sw = deque(sandwiches)
+#     attempts = 0
+#     n = len(queue)
 
-    while queue and attempts < n:
-        if queue[0] == sw[0]:
-            queue.popleft()
-            sw.popleft()
-            attempts = 0
+#     while queue and attempts < n:
+#         if queue[0] == sw[0]:
+#             queue.popleft()
+#             sw.popleft()
+#             attempts = 0
+#         else:
+#             a = queue.popleft()
+#             queue.append(a)
+#             attempts += 1
+
+#     return len(queue)
+
+# students = [1,1,1,0,0,1] 
+# sandwiches = [1,0,0,0,1,1]
+
+# print(countStudents(students, sandwiches))
+
+
+def timeRequiredToBuy(tickets, k):
+    res = 0
+
+    for i in range(len(tickets)):
+        if i <= k:
+            res += min(tickets[i], tickets[k])
         else:
-            a = queue.popleft()
-            queue.append(a)
-            attempts += 1
+            res +=min(tickets[i], tickets[k] - 1)
+    
+    return res
 
-    return len(queue)
-
-students = [1,1,1,0,0,1] 
-sandwiches = [1,0,0,0,1,1]
-
-print(countStudents(students, sandwiches))
-
-
+tickets = [5,1,1,1]
+k = 0
+print(timeRequiredToBuy(tickets, k))
