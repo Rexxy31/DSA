@@ -6,8 +6,10 @@ public class quest {
         int[] sandwiches = {1,0,0,0,1,1};
         int[] tickets = {2, 3, 2};
         int k = 2;
+        int[] stones = {2,7,4,1,8,1};
         // System.out.println(countStudents(students, sandwiches));
-        System.out.println(timeRequiredToBuy(tickets, k));
+        // System.out.println(timeRequiredToBuy(tickets, k));
+        System.out.println(lastStoneWeight(stones));
     }
 
     private static int countStudents(int[] students, int[] sandwiches) {
@@ -48,5 +50,24 @@ public class quest {
         }
 
         return res;
-    } 
+    }
+
+    private static int lastStoneWeight(int[] stones) {
+        PriorityQueue<Integer> heap = new PriorityQueue<>(Collections.reverseOrder());
+
+        for (int stone : stones) {
+            heap.offer(stone);
+        }
+
+        while (heap.size() > 1) {
+            int largest = heap.poll();
+            int nextLargest = heap.poll();
+
+            if (largest != nextLargest) {
+                heap.offer(largest - nextLargest);
+            }
+        }
+
+        return heap.isEmpty() ? 0 : heap.poll();
+    }
 }
