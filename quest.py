@@ -1,4 +1,5 @@
 from collections import deque
+import heapq
 
 # def closestToZero(arr):
 #     closest = arr[0]
@@ -364,26 +365,46 @@ from collections import deque
 # k = 0
 # print(timeRequiredToBuy(tickets, k))
 
-class MyQueue:
+# class MyQueue:
 
-    def __init__(self):
-        self.s1 = []
-        self.s2 = []
+#     def __init__(self):
+#         self.s1 = []
+#         self.s2 = []
 
-    def push(self, x: int) -> None:
-        self.s1.append(x)
+#     def push(self, x: int) -> None:
+#         self.s1.append(x)
 
-    def pop(self) -> int:
-        if not self.s2:
-            while self.s1:
-                self.s2.append(self.s1.pop())
-        return self.s2.pop()
-    def peek(self) -> int:
-        if not self.s2:
-            while self.s1:
-                self.s2.append(self.s1.pop())
-        return self.s2[-1]
+#     def pop(self) -> int:
+#         if not self.s2:
+#             while self.s1:
+#                 self.s2.append(self.s1.pop())
+#         return self.s2.pop()
+#     def peek(self) -> int:
+#         if not self.s2:
+#             while self.s1:
+#                 self.s2.append(self.s1.pop())
+#         return self.s2[-1]
 
-    def empty(self) -> bool:
-        return max(len(self.s1), len(self.s2)) == 0
+#     def empty(self) -> bool:
+#         return max(len(self.s1), len(self.s2)) == 0
     
+def lastStoneWeight(stones):
+    for i in range(len(stones)):
+        stones[i] = -stones[i]
+
+    heapq.heapify(stones)
+
+    while len(stones) > 1:
+        largest = heapq.heappop(stones)
+        next_largest = heapq.heappop(stones)
+
+        if largest != next_largest:
+            heapq.heappush(stones, largest - next_largest)
+
+    if len(stones) == 1:
+        return -heapq.heappop(stones)
+    else:
+        return 0
+    
+stones = [2,7,4,1,8,1]
+print(lastStoneWeight(stones))
