@@ -388,23 +388,48 @@ import heapq
 #     def empty(self) -> bool:
 #         return max(len(self.s1), len(self.s2)) == 0
     
-def lastStoneWeight(stones):
-    for i in range(len(stones)):
-        stones[i] = -stones[i]
+# def lastStoneWeight(stones):
+#     for i in range(len(stones)):
+#         stones[i] = -stones[i]
 
-    heapq.heapify(stones)
+#     heapq.heapify(stones)
 
-    while len(stones) > 1:
-        largest = heapq.heappop(stones)
-        next_largest = heapq.heappop(stones)
+#     while len(stones) > 1:
+#         largest = heapq.heappop(stones)
+#         next_largest = heapq.heappop(stones)
 
-        if largest != next_largest:
-            heapq.heappush(stones, largest - next_largest)
+#         if largest != next_largest:
+#             heapq.heappush(stones, largest - next_largest)
 
-    if len(stones) == 1:
-        return -heapq.heappop(stones)
-    else:
-        return 0
+#     if len(stones) == 1:
+#         return -heapq.heappop(stones)
+#     else:
+#         return 0
     
-stones = [2,7,4,1,8,1]
-print(lastStoneWeight(stones))
+# stones = [2,7,4,1,8,1]
+# print(lastStoneWeight(stones))
+
+def kSmallestPairs(nums1, nums2, k):
+    if not nums1 or not nums2 or k == 0:
+        return []
+    
+    res = []
+    heap = []
+
+    for i in range(min(k, len(nums1))):
+        heapq.heappush(heap, (nums1[i] + nums2[0], i, 0))
+
+    while heap and k > 0:
+        _, i, j = heapq.heappop(heap)
+        res.append([nums1[i], nums2[j]])
+        k -= 1
+
+        if j + 1 < len(nums2):
+            heapq.heappush(heap, (nums1[i] + nums2[j + 1], i, j + 1))
+    
+    return res
+
+nums1 = [1,7,11] 
+nums2 = [2,4,6] 
+k = 3
+print(kSmallestPairs(nums1, nums2, k))
