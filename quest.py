@@ -409,27 +409,56 @@ import heapq
 # stones = [2,7,4,1,8,1]
 # print(lastStoneWeight(stones))
 
-def kSmallestPairs(nums1, nums2, k):
-    if not nums1 or not nums2 or k == 0:
-        return []
+# def kSmallestPairs(nums1, nums2, k):
+#     if not nums1 or not nums2 or k == 0:
+#         return []
     
-    res = []
-    heap = []
+#     res = []
+#     heap = []
 
-    for i in range(min(k, len(nums1))):
-        heapq.heappush(heap, (nums1[i] + nums2[0], i, 0))
+#     for i in range(min(k, len(nums1))):
+#         heapq.heappush(heap, (nums1[i] + nums2[0], i, 0))
 
-    while heap and k > 0:
-        _, i, j = heapq.heappop(heap)
-        res.append([nums1[i], nums2[j]])
-        k -= 1
+#     while heap and k > 0:
+#         _, i, j = heapq.heappop(heap)
+#         res.append([nums1[i], nums2[j]])
+#         k -= 1
 
-        if j + 1 < len(nums2):
-            heapq.heappush(heap, (nums1[i] + nums2[j + 1], i, j + 1))
+#         if j + 1 < len(nums2):
+#             heapq.heappush(heap, (nums1[i] + nums2[j + 1], i, j + 1))
     
-    return res
+#     return res
 
-nums1 = [1,7,11] 
-nums2 = [2,4,6] 
-k = 3
-print(kSmallestPairs(nums1, nums2, k))
+# nums1 = [1,7,11] 
+# nums2 = [2,4,6] 
+# k = 3
+# print(kSmallestPairs(nums1, nums2, k))
+
+import heapq
+
+def isPossible(target):
+    if len(target) == 1:
+        return target[0] == 1
+
+    total = sum(target)
+    target = [-x for x in target]
+    heapq.heapify(target)
+
+    while True:
+        largest = -heapq.heappop(target)
+        rest = total - largest
+
+        if largest == 1 or rest == 1:
+            return True
+        if rest == 0 or largest <= rest:
+            return False
+
+        prev = largest % rest
+        if prev == 0:
+            return False
+
+        heapq.heappush(target, -prev)
+        total = rest + prev
+
+target = [9,3,5]
+print(isPossible(target))
