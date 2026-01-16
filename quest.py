@@ -434,31 +434,37 @@ import heapq
 # k = 3
 # print(kSmallestPairs(nums1, nums2, k))
 
-import heapq
+# def isPossible(target):
+#     if len(target) == 1:
+#         return target[0] == 1
 
-def isPossible(target):
-    if len(target) == 1:
-        return target[0] == 1
+#     total = sum(target)
+#     target = [-x for x in target]
+#     heapq.heapify(target)
 
-    total = sum(target)
-    target = [-x for x in target]
-    heapq.heapify(target)
+#     while True:
+#         largest = -heapq.heappop(target)
+#         rest = total - largest
 
-    while True:
-        largest = -heapq.heappop(target)
-        rest = total - largest
+#         if largest == 1 or rest == 1:
+#             return True
+#         if rest == 0 or largest <= rest:
+#             return False
 
-        if largest == 1 or rest == 1:
-            return True
-        if rest == 0 or largest <= rest:
-            return False
+#         prev = largest % rest
+#         if prev == 0:
+#             return False
 
-        prev = largest % rest
-        if prev == 0:
-            return False
+#         heapq.heappush(target, -prev)
+#         total = rest + prev
 
-        heapq.heappush(target, -prev)
-        total = rest + prev
+# target = [9,3,5]
+# print(isPossible(target))
 
-target = [9,3,5]
-print(isPossible(target))
+def detectCapitalUse(word):
+    return (
+        word.isupper() or word.islower() or (word[0].isupper() and word[1:].islower())
+    )
+
+word = "GooGle"
+print(detectCapitalUse(word))
