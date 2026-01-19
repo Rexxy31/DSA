@@ -461,10 +461,30 @@ import heapq
 # target = [9,3,5]
 # print(isPossible(target))
 
-def detectCapitalUse(word):
-    return (
-        word.isupper() or word.islower() or (word[0].isupper() and word[1:].islower())
-    )
+# def detectCapitalUse(word):
+#     return (
+#         word.isupper() or word.islower() or (word[0].isupper() and word[1:].islower())
+#     )
 
-word = "GooGle"
-print(detectCapitalUse(word))
+# word = "GooGle"
+# print(detectCapitalUse(word))
+
+def licenseKeyFormatting(s, k):
+    s = s.upper()
+    s = s.replace("-", "")
+    
+    res = []
+    count = 0
+    
+    for ch in reversed(s):
+        if count == k:
+            res.append("-")
+            count = 0
+        res.append(ch)
+        count += 1
+
+    return "".join(reversed(res))
+
+s = "5F3Z-2e-9-w"
+k = 4
+print(licenseKeyFormatting(s, k))
