@@ -469,22 +469,43 @@ import heapq
 # word = "GooGle"
 # print(detectCapitalUse(word))
 
-def licenseKeyFormatting(s, k):
-    s = s.upper()
-    s = s.replace("-", "")
+# def licenseKeyFormatting(s, k):
+#     s = s.upper()
+#     s = s.replace("-", "")
     
-    res = []
-    count = 0
+#     res = []
+#     count = 0
     
-    for ch in reversed(s):
-        if count == k:
-            res.append("-")
-            count = 0
-        res.append(ch)
-        count += 1
+#     for ch in reversed(s):
+#         if count == k:
+#             res.append("-")
+#             count = 0
+#         res.append(ch)
+#         count += 1
 
-    return "".join(reversed(res))
+#     return "".join(reversed(res))
 
-s = "5F3Z-2e-9-w"
-k = 4
-print(licenseKeyFormatting(s, k))
+# s = "5F3Z-2e-9-w"
+# k = 4
+# print(licenseKeyFormatting(s, k))
+
+def maskPII(s):
+    s = s.lower()
+
+    if "@" in s:
+        name, domain = s.split("@")
+        return name[0] + "*****" + name[-1] + "@" + domain
+
+    digits = [c for c in s if c.isdigit()]
+    local = "***-***-" + "".join(digits[-4:])
+    
+    if len(digits) == 10:
+        return local
+    
+    country =  "+" + "*" * (len(digits) - 10) + "-"
+    return country + local
+
+s1 = "LeetCode@LeetCode.com"
+s2 = "1(234)567-890"
+
+print(maskPII(s2))
