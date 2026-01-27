@@ -489,23 +489,36 @@ import heapq
 # k = 4
 # print(licenseKeyFormatting(s, k))
 
-def maskPII(s):
-    s = s.lower()
+# def maskPII(s):
+#     s = s.lower()
 
-    if "@" in s:
-        name, domain = s.split("@")
-        return name[0] + "*****" + name[-1] + "@" + domain
+#     if "@" in s:
+#         name, domain = s.split("@")
+#         return name[0] + "*****" + name[-1] + "@" + domain
 
-    digits = [c for c in s if c.isdigit()]
-    local = "***-***-" + "".join(digits[-4:])
+#     digits = [c for c in s if c.isdigit()]
+#     local = "***-***-" + "".join(digits[-4:])
     
-    if len(digits) == 10:
-        return local
+#     if len(digits) == 10:
+#         return local
     
-    country =  "+" + "*" * (len(digits) - 10) + "-"
-    return country + local
+#     country =  "+" + "*" * (len(digits) - 10) + "-"
+#     return country + local
 
-s1 = "LeetCode@LeetCode.com"
-s2 = "1(234)567-890"
+# s1 = "LeetCode@LeetCode.com"
+# s2 = "1(234)567-890"
 
-print(maskPII(s2))
+# print(maskPII(s2))
+
+def repeatedSubstringPattern(s):
+    N = len(s)
+
+    for i in range(1, N // 2 + 1):
+        if N % i == 0:
+            if s[:i] * (N // i) == s:
+                return True
+    
+    return False
+
+s = "abab"
+print(repeatedSubstringPattern(s))
